@@ -1,0 +1,1435 @@
+@font-face {
+    font-family: 'inter-black';
+    src: url(../template/font/static/Inter-Black.ttf);
+}
+@font-face {
+    font-family: 'inter-bold';
+    src: url(../template/font/static/Inter-Bold.ttf);
+}
+@font-face {
+    font-family: 'inter-extra-bold';
+    src: url(../template/font/static/Inter-ExtraBold.ttf);
+}
+@font-face {
+    font-family: 'inter-extra-light';
+    src: url(../template/font/static/Inter-ExtraLight.ttf);
+}
+@font-face {
+    font-family: 'inter-light';
+    src: url(../template/font/static/Inter-Light.ttf);
+}
+@font-face {
+    font-family: 'inter-medium';
+    src: url(../template/font/static/Inter-Medium.ttf);
+}
+@font-face {
+    font-family: 'inter-regular';
+    src: url(../template/font/static/Inter-Regular.ttf);
+}
+@font-face {
+    font-family: 'inter-semi-bold';
+    src: url(../template/font/static/Inter-SemiBold.ttf);
+}
+@font-face {
+    font-family: 'inter-thin';
+    src: url(../template/font/static/Inter-Thin.ttf);
+}
+.menu {
+    --s: 20px; /* control the size */
+    --c: black; /* the color */
+    
+    height: var(--s);
+    aspect-ratio: 1;
+    border: none;
+    padding: 0;
+    border-inline: calc(var(--s)/2) solid #0000; 
+    box-sizing: content-box;
+    --_g1: linear-gradient(var(--c) 20%,#0000 0 80%,var(--c) 0) 
+           no-repeat content-box border-box;
+    --_g2: radial-gradient(circle closest-side at 50% 12.5%,var(--c) 95%,#0000) 
+           repeat-y content-box border-box;
+    background: 
+      var(--_g2) left  var(--_p,0px) top,
+      var(--_g1) left  calc(var(--s)/10 + var(--_p,0px)) top,
+      var(--_g2) right var(--_p,0px) top,
+      var(--_g1) right calc(var(--s)/10 + var(--_p,0px)) top;
+    background-size: 
+      20% 80%,
+      40% 100%;
+    position: absolute;
+    display:none;
+    clip-path: inset(0 25%);
+    -webkit-mask: linear-gradient(90deg,#0000,#000 25% 75%,#0000);
+    cursor: pointer;
+    transition: 
+      background-position .3s var(--_s,.3s), 
+      clip-path 0s var(--_s,.6s);
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+  }
+  .menu:before,
+  .menu:after {
+    content:"";
+    position: absolute;
+    border-radius: var(--s);
+    inset: 40% 0;
+    background: var(--c);
+    transition: transform .3s calc(.3s - var(--_s,.3s));
+  }
+  
+  .menu:checked {
+    clip-path: inset(0);
+    --_p: calc(-1*var(--s));
+    --_s: 0s;
+  }
+  .menu:checked:before {
+    transform: rotate(45deg);
+  }
+  .menu:checked:after {
+    transform: rotate(-45deg);
+  }
+  .menu:focus-visible {
+    clip-path: none;
+    -webkit-mask: none;
+    border: none;
+    outline: 2px solid var(--c);
+    outline-offset: 5px;
+  }
+  ::backdrop {
+    background-image: linear-gradient(
+      45deg,
+      magenta,
+      rebeccapurple,
+      dodgerblue,
+      green
+    );
+    opacity: 0.75;
+  }
+*{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+:root{
+    --bg--: #ffdee3;
+    --bg2--: #ffe5e9;
+    --h1--: #008585;
+    --p--: #00adad;
+}
+ul,ol{
+    list-style: none;
+    text-decoration: none;
+}
+a{
+    text-decoration: none;
+}
+hr.line{
+    width: 100%;
+    border-bottom: 1px solid #dbdbdb;
+    opacity: 0.3;
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+}
+button.arrow{
+    font-family: 'inter-bold';
+    display: inline-block;
+    border-radius: 100px;
+    background-color: #ff99a9;
+    border: 3px solid #fff;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 17px;
+    padding: 15px 30px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+   
+button.arrow span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+button.arrow span:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -15px;
+    transition: 0.5s;
+}
+button.arrow:hover{
+    background: #ff7c90;
+}   
+button.arrow:hover span {
+    padding-right: 15px;
+}
+   
+button.arrow:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+
+/* #hero */
+#hero{
+    background: var(--bg--);
+}
+#hero .bg-temp{
+    background: url(../template/hero/images/blob-scene-haikei-removebg-preview.png) no-repeat;
+    background-size: 100% 100%;
+}
+#hero header{
+    padding: 35px 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#hero header h1.left{
+    display: inline-block;
+    width: 200px;
+}
+#hero header h1.left img{
+    display: block;
+    height : 125px;
+}
+#hero header nav ul{
+    display: flex;
+    justify-content: space-between;
+}
+#hero header nav ul li{
+    margin-right: 40px;
+}
+#hero header nav ul li:last-child{
+    margin-right: 0;
+}
+#hero header nav ul li a{
+    font-family: 'inter-medium';
+    display: inline-block;
+    color: #ff3c5d;
+    font-weight: 700;
+    font-size: 16px;
+}
+#hero header nav ul li:hover{
+    transition: all 0.1s ease-in-out;
+    transform: scale(0.95);
+    opacity: 0.6;
+}
+#hero header .right ul{
+    display: flex;
+    justify-content: space-between;
+}
+#hero header .right ul li{
+    margin-right: 10px;
+}
+#hero header .right ul li:last-child{
+    margin-right: 0;
+}
+.btn-diamond {
+    --clr-font-main: hsla(0 0% 20% / 100);
+    --btn-bg-1: hsl(350.58deg 100% 79.01%);
+    --btn-bg-2: hsl(339.51deg 100% 67.8%);
+    --btn-bg-color: hsla(360 100% 100% / 1);
+    --radii: 100px;
+    cursor: pointer;
+    padding: 15px 30px;
+    min-width: 120px;
+    min-height: 44px;
+    font-size: var(--size, 1rem);
+    font-family: "Segoe UI", system-ui, sans-serif;
+    font-weight: 500;
+    transition: 0.8s;
+    background-size: 280% auto;
+    background-image: linear-gradient(325deg, var(--btn-bg-2) 0%, var(--btn-bg-1) 55%, var(--btn-bg-2) 90%);
+    border: 3px solid #fff;
+    border-radius: var(--radii);
+    color: var(--btn-bg-color);
+}
+  
+.btn-diamond:hover {
+    background-position: right top;
+}
+  
+.btn-diamond:is(:focus, :focus-visible, :active) {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--btn-bg-color), 0 0 0 6px var(--btn-bg-2);
+}
+  
+@media (prefers-reduced-motion: reduce) {
+    .btn-diamond {
+      transition: linear;
+    }
+}
+#hero .wrapper{
+    padding: 0px 140px 70px;
+}
+#hero .wrapper .left{
+    padding-top: 60px;
+}
+#hero .wrapper .left h1{
+    font-family: 'inter-bold';
+    font-weight: 700;
+    font-size: 53px;
+    color: var(--h1--);
+    width: 75%;
+    margin-bottom: 10px;
+}
+#hero .wrapper .left h5{
+    font-family: 'inter-bold';
+    font-weight: 700;
+    font-size: 25px;
+    color: var(--p--);
+    width: 70%;
+    margin-bottom: 20px;
+}
+#hero .wrapper .left ul{
+    display: flex;
+    justify-content: space-between;
+    width: 72%;
+}
+button.hero {
+    display: flex;
+    padding: 10px 20px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: white;
+    text-shadow: 2px 2px rgb(116, 116, 116);
+    text-transform: uppercase;
+    border: 3px solid #fff;
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-size: 17px;
+    background-color: #ffaebb;
+    border-radius: 50px;
+    position: relative;
+    overflow: hidden;
+    transition: all .5s ease;
+    cursor: pointer;
+}
+button.hero:hover{
+    background: #ff7c90;
+}
+button.hero:active {
+    transform: scale(.9);
+    transition: all 100ms ease;
+}
+button.hero img {
+    transition: all .5s ease;
+    z-index: 2;
+}
+  
+.play {
+    transition: all .5s ease;
+    transition-delay: 300ms;
+}
+
+button.hero:hover img {
+    transform: scale(3) translate(50%);
+}
+#hero .wrapper .left ul li:last-child button.hero:hover img {
+    transform: scale(3) translate(57%);
+}
+
+.now {
+    position: absolute;
+    left: 0;
+  transform: translateX(-100%);
+    transition: all .5s ease;
+    z-index: 2;
+}
+  
+button.hero:hover .now {
+    transform: translateX(10px);
+    transition-delay: 300ms;
+}
+  
+button.hero:hover .play {
+    transform: translateX(200%);
+    transition-delay: 300ms;
+}
+#hero .wrapper .right{
+    background: url(../template/hero/images/Blood\ donation-pana.svg) no-repeat;
+    background-size: 100% 100%;
+    width: 100%;
+    height: 500px;
+}
+
+
+/* #association */
+#association{
+    background: var(--bg2--);
+}
+#association .wrapper{
+    padding: 100px 140px;
+    text-align: center;
+}
+#association .wrapper h4{
+    font-family: 'inter-medium';
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+#association .wrapper ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#association .wrapper ul li{
+    display: inline-block;
+    width: 120px;
+}
+#association .wrapper ul li img{
+    display: block;
+    width: 100%;
+}
+
+/* #why_donate */
+#why_donate{
+    background: var(--bg--);
+}
+#why_donate .wrapper{
+    padding: 100px 140px;
+}
+#why_donate .wrapper .left h1{
+    font-family: 'inter-bold';
+    font-size: 35px;
+    font-weight: 700;
+    color: var(--h1--);
+    margin-bottom: 30px;
+}
+#why_donate .wrapper .left p{
+    font-family: 'inter-medium';
+    font-weight: 700;
+    font-size: 17px;
+    opacity: 0.7;
+    line-height: 1.5;
+    width: 84%;
+    color: var(--p--);
+    margin-bottom: 30px;
+}
+#why_donate .wrapper .left a{
+    display: inline-flex;
+    font-family: 'inter-bold';
+    font-size: 20px;
+    align-items: center;
+    color: #ff3c5d;
+    border-bottom: 2px solid #008585;
+    margin-bottom: 40px;
+}
+#why_donate .wrapper .left a:hover{
+    transition: all 0.2s ease-in-out;
+    transform: scale(0.95);
+    opacity: 0.6;
+}
+#why_donate .wrapper .left a span{
+    display: inline-block;
+    width: 30px;
+    margin-left: 5px;
+}
+#why_donate .wrapper .left a span img{
+    display: block;
+    width: 100%;
+}
+#why_donate .wrapper .left button{
+    display: block;
+    padding: 15px 40px;
+}
+#why_donate .wrapper .right{
+    display: inline-block;
+    width: 100%;
+}
+#why_donate .wrapper .right img{
+    display: block;
+    width: 100%;
+}
+
+
+/* #camp */
+#camp{
+    background: var(--bg--);
+}
+#camp .wrapper{
+    padding: 100px 140px;
+}
+#camp .wrapper .left{
+    display: inline-block;
+    width: 110%;
+}
+#camp .wrapper .left img{
+    display: block;
+    width: 100%;
+}
+#camp .wrapper .right{
+    padding-left: 100px;
+    padding-top: 50px;
+}
+#camp .wrapper .right h1{
+    font-family: 'inter-bold';
+    font-weight: 700;
+    font-size: 35px;
+    color: var(--h1--);
+    margin-bottom: 30px;
+}
+#camp .wrapper .right p{
+    font-family: 'inter-medium';
+    font-weight: 700;
+    font-size: 17px;
+    opacity: 0.7;
+    line-height: 1.5;
+    color: var(--p--);
+    margin-bottom: 30px;
+    margin-bottom: 30px;
+}
+#camp .wrapper .right a{
+    display: inline-flex;
+    font-family: 'inter-bold';
+    font-size: 20px;
+    align-items: center;
+    color: #ff3c5d;
+    border-bottom: 2px solid #008585;
+    margin-bottom: 40px;
+}
+#camp .wrapper .right a:hover{
+    transition: all 0.2s ease-in-out;
+    transform: scale(0.95);
+    opacity: 0.6;
+}
+#camp .wrapper .right a span{
+    display: inline-block;
+    width: 30px;
+    margin-left: 5px;
+}
+#camp .wrapper .right a span img{
+    display: block;
+    width: 100%;
+}
+
+
+/* #home_blood */
+#home_blood{
+    background: var(--bg--);
+}
+#home_blood .wrapper{
+    padding: 100px 140px;
+    flex-direction: row-reverse;
+}
+#home_blood .wrapper .left{
+    display: inline-block;
+    width: 180%;
+}
+#home_blood .wrapper .left img{
+    display: block;
+    width: 100%;
+}
+#home_blood .wrapper .right{
+    padding-right: 100px;
+    padding-top: 20px;
+}
+#home_blood .wrapper .right h1{
+    font-family: 'inter-bold';
+    font-size: 35px;
+    font-weight: 700;
+    color: var(--h1--);
+    margin-bottom: 30px;
+}
+#home_blood .wrapper .right p{
+    font-family: 'inter-medium';
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--p--);
+    opacity: 0.7;
+    line-height: 1.5;
+    margin-bottom: 40px;
+}
+
+/* #restrictions */
+#restrictions{
+    background: var(--bg2--);
+    text-align: center;
+    padding-top: 100px;
+}
+#restrictions h1{
+    font-family: 'inter-bold';
+    font-size: 35px;
+    font-weight: 700;
+    color: var(--h1--);
+    margin-bottom: 50px;
+}
+#restrictions .wrapper{
+    padding: 35px 70px;
+    display: flex;
+    justify-content: space-between;
+}
+#restrictions .wrapper .item{
+    padding-left: 70px;
+    border-right: 1px solid #b8b8b8;
+    padding-right: 75px;
+}
+#restrictions .wrapper .item:first-child{
+    padding-left: 0;
+}
+#restrictions .wrapper .item:last-child{
+    padding-right: 0;
+    border-right: none;
+}
+#restrictions .wrapper .item ul{
+    display: flex;
+    flex-wrap: wrap;
+}
+#restrictions .wrapper .item ul li{
+    margin-bottom: 20px;
+    font-family: 'inter-medium';
+    font-size: 16px;
+    color: #ff7c90;
+}
+#restrictions .wrapper .item ul li.active{
+    display: none;
+}
+#restrictions .wrapper .item ul li h3{
+    display: block;
+    font-family: 'inter-bold';
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--p--);
+    border-bottom: 2px solid #00adad;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+/* #medical_team */
+#medical_team{
+    background: var(--bg--);
+}
+#medical_team h1{
+    font-family: 'inter-bold';
+    font-weight: 700;
+    font-size: 35px;
+    width: 45%;
+    color: var(--h1--);
+    margin-bottom: 35px;
+}
+#medical_team .wrapper{
+    padding: 100px 70px;
+}
+#medical_team .wrapper ul{
+    display: flex;
+    justify-content: space-between;
+    /* width: 117%; */
+}
+#medical_team .wrapper ul li{
+    margin-right: 55px;
+}
+#medical_team .wrapper ul li:last-child{
+    margin-right: 0;
+}
+#medical_team .wrapper ul li .image{
+    display: inline-block;
+    height: 350px;
+    margin-bottom: 10px;
+}
+#medical_team .wrapper ul li .image img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+#medical_team .wrapper ul li span.name{
+    display: block;
+    font-family: 'inter-bold';
+    font-weight: 700;
+    font-size: 20px;
+    color: #006e6e;
+}
+#medical_team .wrapper ul li h6{
+    font-family: 'inter-medium';
+    font-weight: 700;
+    font-size: 14px;
+    color: #426363;
+    margin-bottom: 10px;
+}
+#medical_team .wrapper ul li p{
+    font-family: 'inter-regular';
+    color: var(--p--);
+    font-size: 15px;
+}
+
+
+/* footer */
+footer{
+    background: #006e6e;
+}
+footer .wrapper{
+    padding: 70px 100px;
+}
+footer .wrapper .top{
+    margin-bottom: 30px;
+}
+footer .wrapper .top .item1 span.logo{
+    display: inline-block;
+    width: 300px;
+}
+footer .wrapper .top .item1 span.logo img{
+    display: block;
+    height :200px;
+}
+footer .wrapper .top .item1 h1{
+    font-family: 'inter-bold';
+    font-weight: 700;
+    font-size: 35px;
+    color: #fff;
+    width: 90%;
+}
+footer .wrapper .top .item1 h1 span{
+    color: #ff7c90;
+}
+footer .wrapper .top .item{
+    text-align: center;
+}
+footer .wrapper .top .item h2{
+    font-family: 'inter-bold';
+    font-weight: 700;
+    font-size: 25px;
+    color: #fff;
+    border-bottom: 5px solid #ff3c5d;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+footer .wrapper .top .item ul{
+    text-align: center;
+}
+footer .wrapper .top .item ul li{
+    margin-bottom: 2px;
+}
+footer .wrapper .top .item ul li a{
+    display: inline-block;
+    font-family: 'inter-medium';
+    font-size: 17px;
+    color: #ff99a9;
+    opacity: 0.7;
+}
+footer .wrapper .top .item ul li a:hover{
+    transition: all 0.2s ease-in-out;
+    color: #ff3c5d;
+}
+footer .wrapper .below{
+    margin-top: 30px;
+    text-align: center;
+}
+footer .wrapper .below ul.card{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+footer .wrapper .below ul.card li{
+    margin-right: 20px;
+}
+footer .wrapper .below ul.card li:last-child{
+    margin-right: 0;
+}
+footer .wrapper .below ul.card li a{
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+}
+footer .wrapper .below ul.card li .social-link1:hover{
+    transition: all 0.2s ease-in-out;
+    transform: scale(0.9);
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+}
+footer .wrapper .below ul.card li .social-link2:hover{
+    transition: all 0.2s ease-in-out;
+    transform: scale(0.9);
+    background-color: #00ccff;
+}
+footer .wrapper .below ul.card li .social-link3:hover{
+    transition: all 0.2s ease-in-out;
+    transform: scale(0.9);
+    background-color: #5865f2;
+}
+footer .wrapper .below ul.card li .social-link4:hover{
+    transition: all 0.2s ease-in-out;
+    transform: scale(0.9);
+    background-color: #12a50b;
+}
+footer .wrapper .below ul.card li a img{
+    display: block;
+    width: 40px;
+    color: #fff;
+}
+footer .wrapper .below h1{
+    font-family: 'inter-bold';
+    font-weight: 700;
+    font-size: 35px;
+    color: #ff7c90;
+    margin-bottom: 5px;
+}
+footer .wrapper .below p{
+    font-family: 'inter-medium';
+    font-size: 17px;
+    color: #ff99a9;
+    opacity: 0.7;
+}
+footer .wrapper .below p a{
+    font-family: 'inter-bold';
+    font-weight: 700;
+    font-size: 20px;
+    color: #ff3c5d;
+}
+
+/* About Page */
+#about {
+    height: 100vh;
+    background-color: var(--bg--);
+}
+
+#about .container header {
+    font-family: 'inter-semi-bold';
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg--);
+    padding : 0 50px;
+    height: 200px;
+}
+
+#about .container header .img-container {
+    display: flex;
+    align-items: center;
+}
+
+#about .container header .img-container img:first-child {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px; 
+}
+
+#about .container header .img-container img {
+    height: 100px;
+}
+
+#about .container header .content {
+    display: flex;
+    align-items: center;
+}
+
+#about .container header .content ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; 
+    align-items:center;
+}
+
+#about .container header .content ul li {
+    margin-right: 40px;
+}
+
+#about .container header .content ul li:last-child {
+    margin-right: 0;
+}
+
+#about .container header .content ul li a {
+    font-family: 'inter-medium';
+    color: #ff3c5d;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+#about .container header .content ul li a:hover {
+    transition: all 0.1s ease-in-out;
+    transform: scale(0.95);
+    opacity: 0.6;
+}
+
+
+
+#about .side-bar{
+    width: 20%;
+    background: var(--bg--);
+    position: absolute;
+    margin-left: 80%; /* IF you want to position the sidebar */
+    top: 15%;
+
+}
+#about .side-bar .wrapper .top{
+    padding: 40px 20px 20px;
+}
+#about .side-bar .wrapper .top h1{
+    font-size: 20px;
+    color: var(--h1--);
+    font-family: 'inter-bold';
+    margin-bottom: 5px;
+}
+#about .side-bar .wrapper .top hr.line{
+    width: 100%;
+    border-bottom: 1px solid var(--h1--);
+    opacity: 1;
+}
+#about .side-bar .wrapper ul li{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+#about .side-bar .wrapper ul li span.bar{
+    display: inline-block;
+    height: 30px;
+    margin-right: 27px;
+    opacity: 0;
+}
+#about .side-bar .wrapper ul li span.bar img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+#about .side-bar .wrapper ul li a{
+    font-size: 16px;
+    font-family: 'inter-medium';
+    color: var(--p--);
+}
+#about .side-bar .wrapper ul li a:hover{
+    color: var(--h1--);
+}
+#about .side-bar .wrapper ul li:hover span.bar{
+    opacity: 1;
+}
+#about .side-bar .wrapper ul li span.active{
+    opacity: 1;
+}
+#about .side-bar .wrapper ul li a.active{
+    color: var(--h1--);
+}
+#about section.content div.each_content_page {
+    height : 100vh;
+    max-width : 80%;
+    font-family: 'inter-medium';
+}
+#about section.content div.each_content_page .wrapper {
+    margin-left : 40px;
+}
+#about section.content div.each_content_page {
+    display: none;
+}
+#about section.content div.active {
+    display: initial;
+}
+#about section.content div.each_content_page h1  {
+    color : var(--h1--);
+    margin-bottom : 20px;
+    font-size : 56px;
+}
+#about section.content div.each_content_page p,h4,li,ol {
+    color : var(--p--);
+    font-size : 26px;
+    margin-bottom : 24px;
+    margin-top : 10px;
+    max-width : 800px;
+}
+#about section.content div.each_content_page p h4 {
+    color : var(--p--);
+    font-size : 26px;
+}
+#about section.content .Aim h1 {
+    margin-bottom : 50px;
+}
+
+/* Keyframes */
+@keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-50px); 
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+/* Responsive */
+@media all and (max-width: 1280px) {
+    /* #hero */
+    #hero header nav{
+        display: none;
+    }
+    #hero .wrapper{
+        padding-top: 80px;
+        padding-bottom: 100px;
+        flex-direction: column-reverse;
+    }
+    #hero .wrapper .left{
+        text-align: center;
+        padding-top: 0;
+    }
+    #hero .wrapper .left h1{
+        width: 100%;
+    }
+    #hero .wrapper .left h5{
+        width: 100%;
+        margin-bottom: 40px;
+    }
+    #hero .wrapper .left ul{
+        justify-content: center;
+        width: 100%;
+    }
+    #hero .wrapper .left ul li:first-child{
+        margin-right: 15px;
+    }
+
+    /* #medical */
+    #medical_team h1{
+        width: 55%;
+    }
+    #medical_team .wrapper ul{
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    #medical_team .wrapper ul li{
+        width: 43%;
+    }
+    #medical_team .wrapper ul li:first-child{
+        margin-bottom: 50px;
+    }
+
+    /* footer */
+    footer .wrapper .top{
+        flex-wrap: wrap;
+    }
+    footer .wrapper .top .item1{
+        width: 100%;
+        margin-bottom: 50px;
+    }
+    /* About */
+    #about section.content div.each_content_page h1  {
+        color : var(--h1--);
+        margin-bottom : 20px;
+        font-size : 36px;
+    }
+    #about section.content div.each_content_page p,h4,li,ol {
+        color : var(--p--);
+        font-size : 20px;
+        margin-bottom : 24px;
+        margin-top : 10px;
+        max-width : 600px;
+    }
+}
+
+@media all and (max-width: 980px) {
+    /* #hero */
+    #hero .wrapper .right{
+        height: 340px;
+    }
+    #hero .wrapper .left h1{
+        font-size: 44px;
+    }
+    #hero .wrapper .left h5{
+        font-size: 20px;
+    }
+
+
+    /* #association */
+    #association .wrapper ul{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    #association .wrapper ul li{
+        width: 125px;
+    }
+    
+
+    /* #why_donate */
+    #why_donate .wrapper .right{
+        display: none;
+    }
+    #why_donate .wrapper .left p{
+        width: 100%;
+    }
+
+    /* #camp */
+    #camp .wrapper .left{
+        display: none;
+    }
+    #camp .wrapper .right{
+        padding-left: 0;
+    }
+
+    /* #home_blood */
+    #home_blood .wrapper .left{
+        display: none;
+    }
+    #home_blood .wrapper .right{
+        padding-right: 0;
+    }
+
+    /* #restrictions */
+    #restrictions .wrapper{
+        flex-wrap: wrap;
+    }
+    #restrictions .wrapper .item{
+        width: 47%;
+    }
+    #restrictions .wrapper .item:first-child{
+        padding-left: 0;
+        padding-right: 20px;
+        margin-bottom: 30px;
+    }
+    #restrictions .wrapper .item{
+        padding-left: 0;
+        padding-right: 0;
+    }
+    #restrictions .wrapper .item:nth-child(2){
+        border-right: none;
+    }
+    #restrictions .wrapper .item:last-child{
+        display: none;
+    }
+    #restrictions .wrapper .item ul li.active{
+        display: block;
+    }
+    #restrictions .wrapper .item ul li.mb{
+        margin-bottom: 40px;
+    }
+
+    /* #medical_team */
+    #medical_team .wrapper ul li .image{
+        height: 260px;
+    }
+    #medical_team .wrapper ul li{
+        width: 40%;
+    }
+    #medical_team h1{
+        width: 55%;
+    }
+    
+    /* #About */
+    
+    #about .container header {  
+    font-family: 'inter-semi-bold';
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg--);
+    padding : 0 50px;
+    height: 200px;
+    }
+
+    #about .container header .img-container {
+        display: flex;
+        align-items: center;
+}
+
+    #about .container header .img-container img:first-child {
+    width: 40px;
+    height: 40px;
+    }
+
+    #about .container header .img-container img.PL {
+    height: 100px;
+    margin-left: 22rem;
+    }
+
+    #about .container header .content {
+        display: none;
+    }
+    #about .container div.each_content_page  {
+    text-align : center;
+    }
+    #about .container div.each_content_page div.wrapper {
+        text-align: center;
+    }
+    .side-bar { 
+    display: none;
+    }
+
+    .side-bar.active {  
+    display: block;
+    animation: slideIn 0.5s ease-in-out forwards;
+    }
+    .menu { 
+    display: block;
+    margin-left : 94%;
+    top : 75px;
+    }
+    #about section.content div.each_content_page p,h4,li,ol {   
+    color : var(--p--);
+    margin-left : 15%;
+    }
+}
+
+@media all and (max-width: 768px) {
+    #hero .wrapper{
+        padding: 80px 120px 100px;
+    }
+    #hero .wrapper .right{
+        height: 315px;
+    }
+    #why_donate .wrapper,
+    #camp .wrapper,
+    #home_blood .wrapper{
+        padding: 100px 120px;
+    }
+    #restrictions .wrapper{
+        padding: 35px 40px;
+    }
+    #medical_team .wrapper{
+        padding: 100px 40px;
+    }
+    #medical_team h1{
+        width: 80%;
+    }
+    footer .wrapper .top .item{
+        width: 45%;
+        margin-bottom: 35px;
+    }
+    #about .container header .img-container img.PL {
+        height: 100px;
+        margin-left: 16rem;
+        }
+    #about section.content div.each_content_page p,h4,li,ol {
+        margin-left : 40px;
+    }
+    #about .container .side-bar {
+        width : 30%;
+        margin-left: 70%;
+    }
+
+}
+
+@media all and (max-width: 640px) {
+    /* #hero */
+    #hero header{
+        padding: 35px 25px;
+    }
+    #hero header .right ul{
+        display: none;
+    }
+    #hero .wrapper {
+        padding: 80px 50px 100px;
+    }
+    #hero .wrapper .left h1{
+        font-size: 35px;
+    }
+    #hero .wrapper .left h5{
+        font-size: 16px;
+    }
+    #hero .wrapper .left ul li:first-child{
+        margin-right: 10px;
+    }
+    #hero .wrapper .right{
+        height: 250px;
+    }
+
+    /* #association */
+    #association .wrapper{
+        padding: 80px 50px 100px;
+    }
+    #association .wrapper ul li{
+        width: 130px;
+    }
+
+    #why_donate .wrapper, #camp .wrapper, #home_blood .wrapper{
+        padding: 100px 50px;
+    }
+
+    /* #medical_team */
+    #medical_team h1{
+        font-size: 30px;
+        width: 100%;
+    }
+    #medical_team .wrapper ul{
+        text-align: center;
+    }
+    #medical_team .wrapper ul li{
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 50px;
+    }
+    #about .container header .img-container img.PL {
+        height: 100px;
+        margin-left: 12rem;
+        }
+    #about section.content div.each_content_page p,h4,li,ol {
+        margin-left : 40px;
+        max-width : 500px;
+    }
+    #about .container .side-bar {
+        width : 35%;
+        margin-left: 65%;
+    }
+    .menu {
+        margin-left:90%;
+        margin-top : 5px;
+    }
+}
+
+@media all and (max-width: 480px) {
+    #hero .wrapper{
+        padding: 80px 30px 100px;
+    }
+    #hero .wrapper .right{
+        height: 190px;
+    }
+    #hero .wrapper .left h1{
+        font-size: 30px;
+    }
+    button.hero{
+        font-size: 15px;
+        padding: 10px 11px;
+    }
+    #hero .wrapper .left ul li:first-child{
+        margin-right: 5px;
+    }
+
+    #why_donate .wrapper .left h1,
+    #camp .wrapper .right h1,
+    #home_blood .wrapper .right h1{
+        font-size: 25px;
+    }
+    #why_donate .wrapper .left p,
+    #camp .wrapper .right p,
+    #home_blood .wrapper .right p{
+        font-size: 15px;
+    }
+
+    #restrictions h1{
+        font-size: 28px;
+        margin-bottom: 0;
+    }
+    #restrictions .wrapper .item{
+        padding-right: 0 !important;
+        width: 100%;
+        border: none;
+    }
+
+    footer .wrapper{
+        padding: 70px 30px;
+    }
+    footer .wrapper .top .item{
+        width: 100%;
+    }
+    footer .wrapper .top .item1 span.logo{
+        width: 230px;
+    }
+    footer .wrapper .top .item1 h1{
+        width: 100%;
+        font-size: 28px;
+    }
+    #about .container header .img-container img.PL {
+        height: 100px;
+        margin-left: 7rem;
+        }
+    #about section.content div.each_content_page p,h4,li,ol {
+        margin-left : 40px;
+        max-width : 350px;
+        font-size : 18px;
+    }
+    #about .container .side-bar {
+        width : 45%;
+        margin-left: 55%;
+    }
+    .menu {
+        margin-left:90%;
+        margin-top : 5px;
+    }
+}
+
+@media all and (max-width: 360px) {
+    #hero header h1.left img{
+        width: 65%;
+    }
+    #hero .wrapper .right{
+        height: 160px;
+    }
+    #hero .wrapper .left h1{
+        font-size: 26px;
+    }
+    #hero .wrapper .left h5{
+        font-size: 11px;
+    }
+    button.hero {
+        font-size: 10px;
+        padding: 7px 7px;
+    }
+    button.hero img{
+        width: 25px;
+    }
+    #association .wrapper ul li{
+        width: 40%;
+    }
+
+    #why_donate .wrapper .left h1, #camp .wrapper .right h1, #home_blood .wrapper .right h1{
+        font-size: 20px;
+    }
+    #why_donate .wrapper .left p, #camp .wrapper .right p, #home_blood .wrapper .right p{
+        font-size: 12px;
+    }
+
+    #why_donate .wrapper .left a{
+        font-size: 15px;
+        margin-bottom: 25px;
+    }
+    #why_donate .wrapper .left a span{
+        width: 23px;
+    }
+
+    #why_donate .wrapper .left button,
+    button.arrow{
+        padding: 14px 30px;
+        font-size: 15px;
+    }
+
+    #camp .wrapper,
+    #home_blood .wrapper{
+        padding: 50px 50px;
+    }
+
+    #restrictions h1{
+        font-size: 23px;
+    }
+    #restrictions .wrapper .item ul li{
+        font-size: 10px;
+    }
+
+    #medical_team h1{
+        font-size: 20px;
+    }
+    #medical_team .wrapper ul li p{
+        font-size: 12px;
+    }
+
+    footer .wrapper .top .item1 span.logo{
+        width: 180px;
+    }   
+    footer .wrapper .below h1{
+        font-size: 30px;
+    }
+    footer .wrapper .below p{
+        font-size: 13px;
+    }
+    footer .wrapper .below p a{
+        font-size: 15px;
+    }
+    #about .container header .img-container img.PL {
+        height: 100px;
+        margin-left: 3rem;
+        }
+    #about section.content div.each_content_page p,h4,li,ol {
+        margin-left : 0px;
+        max-width : 350px;
+        font-size : 14px;
+        margin-right: 20px;
+    }
+    #about .container .side-bar {
+        width : 90%;
+        margin-left: 10%;
+    }
+}
+
+@media all and (max-width: 320px) {
+    
+}

@@ -1,0 +1,292 @@
+
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../template/logo/logo.png">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+    <title>Pure Link</title>
+</head>
+<body>
+    <section id="hero">
+        <dialog>
+            <button autofocus>Close</button>
+            <p>This modal dialog has a groovy backdrop!</p>
+          </dialog>
+          <button>Show the dialog</button>
+        
+        <section class="bgTemp">
+            <header>
+                <h1 class="left">
+                    <a href="#"><img src="template/logo/logo.png" alt="logo"></a>
+                </h1>
+                <nav>
+                    <ul>
+                        <li><a href="#">Testing Process</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="#">Medical Teams</a></li>
+                        <li><a href="#">Why Us</a></li>
+                    </ul>
+                </nav>
+                <div class="right">
+                    <ul>
+                        <li><button class="btn-diamond">Want Blood</button></li>
+                        <li><button class="btn-diamond">Donate</button></li>
+                    </ul>
+                </div>       
+            </header>   <!--(#hero > .bg-temp > header)-->
+            <section class="wrapper flex">
+                <div class="left">
+                    <h1>Every Drop Counts: Give The Gift Of Life</h1>
+                    <h5>Connecting Donors With Those In Need.</h5>
+                    <ul>
+                        <li>
+                            <button class="hero">
+                                <img src="template/hero/images/reg.png" alt="" width="35px" height="">
+                                <span class="now">now!</span>
+                                <span class="play">Register</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button class="hero">
+                                <img src="template/hero/images/contact.png" alt="" width="35px" height="">
+                                <span class="now">us!</span>
+                                <span class="play">Contact</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>  <!--(#hero > .bg-temp > .wrapper > .left)-->
+                <div class="right"></div>
+            </section>  <!--(#hero > .bg-temp > .wrapper)-->
+        </section>  <!--(#hero > .bg-temp)-->
+        <hr class="line">
+    </section>  <!--(#hero)-->
+
+
+    <section id="association">
+        <section class="wrapper">
+            <h4>We are associated with these hospitals</h4>
+            <ul>
+                <li><img src="template/testimonial/images/amrita-removebg-preview.png" alt=""></li>
+                <li><img src="template/testimonial/images/appolo-removebg-preview.png" alt=""></li>
+                <li><img src="template/testimonial/images/kims-removebg-preview.png" alt=""></li>
+                <li><img src="template/testimonial/images/vps-removebg-preview.png" alt=""></li>
+                <!-- <li><img src="template/testimonial/images/aster.png" alt=""></li> -->
+            </ul>
+        </section>  <!--(#association > .wrapper)-->
+        <hr class="line">
+    </section>  <!--(#association)-->
+
+
+    <section id="why_donate">
+        <section class="wrapper flex">
+            <div class="left">
+                <h1>The Gift of Life: Blood Donation</h1>
+                <p>Every drop counts! Blood donation is a simple yet impactful act of kindness that can save lives. When you donate blood, you provide a lifeline to those in need, be it accident victims, surgical patients, or individuals battling serious illnesses.</p>
+                <a href="#">Why Donate Blood <span><img src="template/why_donate/images/right_arrow.png" alt="image"></span></a>
+                <button class="arrow"><span>Donate</span></button>
+            </div>
+            <div class="right"><img src="template/why_donate/images/donating.png" alt="image"></div>
+        </section>  <!--(#why_donate > .wrapper)-->
+        <hr class="line">
+    </section>  <!--(#why_donate)-->
+
+
+    <section id="camp">
+        <section class="wrapper flex">
+            <div class="left">
+                <img src="template/donate_section/images/Medical research-bro.svg" alt="image">
+            </div>
+            <div class="right">
+                <h1>High Facilitated Camps</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias quia minus dolor? Praesentium, nisi? Minima, mollitia ab aperiam ea voluptate, iure rerum asperiores harum ratione temporibus molestiae hic. Nesciunt, saepe.</p>
+                <a href="#">Know More <span><img src="template/why_donate/images/right_arrow.png" alt="image"></span></a>
+            </div>
+        </section>  <!--(#camp > .wrapper)-->
+        <hr class="line">
+    </section>  <!--(#camp)-->
+
+
+    <section id="home_blood">
+        <section class="wrapper flex">
+            <div class="left">
+                <img src="template/home_blood_collection/images/Nursing home-bro.svg" alt="image">
+            </div>  <!--(#home_blood > .left)-->
+            <div class="right">
+                <h1>Home Blood Collection</h1>
+                <p>Our home blood collection service prioritizes your convenience and well-being. Skip the hassle of clinic visits – our skilled phlebotomists will collect your blood samples at your doorstep. Enjoy peace of mind with our sterile, professional, and minimally discomforting process, all scheduled at your convenience. Your safety and comfort are our top priorities.
+                </p>
+                <button class="arrow"><span>Give Blood</span></button>
+            </div>  <!--(#home_blood > .wrapper > .right)-->
+        </section>  <!--(#home_blood > .wrapper)-->
+        <hr class="line">
+    </section> <!--(#home_blood)-->
+
+
+    <section id="restrictions">
+        <h1>Restrictions You Must Follow</h1>
+        <section class="wrapper">
+            <div class="item">
+                <ul>
+                    <li><h3>Age</h3> Individuals typically need to be between 18 and 65 years old to donate blood. The minimum age might vary in some states and blood banks.</li>
+                    <li><h3>Weight</h3> You should weigh at least 45 kg (99 pounds) to be eligible for blood donation.</li>
+                    <li><h3>Health</h3> Donors should be in good general health and not suffering from any acute or chronic medical conditions, infections, or diseases at the time of donation.</li>
+                    <li><h3>Hemoglobin Levels</h3> Your hemoglobin level should meet the specified criteria, usually around 12.5 to 13.5 grams per deciliter (g/dL) for men and 12.0 to 12.5 g/dL for women.</li>
+                    
+                    <li class="active"><h3>Tattoos and Piercings</h3> There may be a deferral period after getting a tattoo, piercing, or other invasive procedures due to the risk of infection.</li>
+                    <li class="active"><h3>Vaccinations</h3> Depending on the vaccine, there might be a waiting period before donating blood. For example, you may need to wait for a specific duration after receiving certain vaccines, such as COVID-19 vaccines.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <ul>
+                    <li class="mb"><h3>Pregnancy and Breastfeeding</h3> Pregnant and breastfeeding women are usually not eligible for blood donation.</li>
+                    <li><h3>Travel History</h3> Recent travel to certain malaria-endemic areas may disqualify a donor for a specific period.</li>
+                    <li><h3>Medications</h3> Some medications may affect eligibility, so it's essential to disclose any prescription or over-the-counter medications you are taking to the blood bank staff.</li>
+                    <li class="mb"><h3>Infections</h3> Individuals with HIV, hepatitis B or C, or other blood-borne infections are generally not allowed to donate blood.</li>
+                
+                    <li class="active"><h3>Previous Donations</h3> There is usually a minimum time interval required between successive blood donations. This interval can vary but is typically around 56 days for whole blood donations.</li>
+                    <li class="active"><h3>High-Risk Behaviors</h3> Individuals engaged in high-risk behaviors such as intravenous drug use or unprotected sex with multiple partners may be disqualified from donating blood.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <ul>
+                    <li><h3>Tattoos and Piercings</h3> There may be a deferral period after getting a tattoo, piercing, or other invasive procedures due to the risk of infection.</li>
+                    <li><h3>Vaccinations</h3> Depending on the vaccine, there might be a waiting period before donating blood. For example, you may need to wait for a specific duration after receiving certain vaccines, such as COVID-19 vaccines.</li>
+                    <li><h3>Previous Donations</h3> There is usually a minimum time interval required between successive blood donations. This interval can vary but is typically around 56 days for whole blood donations.</li>
+                    <li><h3>High-Risk Behaviors</h3> Individuals engaged in high-risk behaviors such as intravenous drug use or unprotected sex with multiple partners may be disqualified from donating blood.</li>
+                </ul>
+            </div>
+        </section>  <!--(#restrictions > .wrapper)-->
+        <hr class="line">
+    </section>  <!--(#restrictions)-->
+
+
+    <section id="medical_team">
+        <section class="wrapper">
+            <h1>Our Medical Teams: Dedicated Proffessionals</h1>
+            <ul>
+                <li>
+                    <div class="image">
+                        <img src="template/medical_team/images/dctr1.jpg" alt="image">
+                    </div>
+                    <span class="name">Dr. David Anderson</span>
+                    <h6>Cardiovascular Surgery</h6>
+                    <p>Has performed over 500 successful heart surgeries, specializing in complex cases and minimally invasive procedures.</p>
+                </li>
+                <li>
+                    <div class="image">
+                        <img src="template/medical_team/images/dctr2.jfif" alt="image">
+                    </div>
+                    <span class="name">Dr. Sarah Mitchell</span>
+                    <h6>Hematology</h6>
+                    <p>Pioneered a groundbreaking technique for rare blood disorders that significantly reduces the need for blood transfusions.</p>
+                </li>
+                <li>
+                    <div class="image">
+                        <img src="template/medical_team/images/dctr3.png" alt="image">
+                    </div>
+                    <span class="name">Dr. Michael Roberts</span>
+                    <h6>Pediatric Hematology-Oncology</h6>
+                    <p>Known for her compassionate care of young patients, Dr. Rahman has played a vital role in increasing survival rates for childhood leukemia in the region.</p>
+                </li>
+            </ul>
+        </section>  <!--(#medical_team > .wrapper)-->
+        <hr class="line">
+    </section>  <!--(#medical_team)-->
+
+
+    <footer>
+        <section class="wrapper">
+            <section class="top flex">
+                <div class="item1">
+                    <span class="logo"><img src="template/logo/logo.png" alt="image"></span>
+                    <h1><span>1200</span> Donors Already Connected</h1>
+                </div>  <!--(footer > .wrapper > .top > .item1)-->
+
+                <div class="item">
+                    <h2>About</h2>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Why US</a></li>
+                        <li><a href="#">Why Donate</a></li>
+                        <li><a href="#">Facilities</a></li>
+                    </ul>
+                </div>  <!--(footer > .wrapper > .top > .item)-->
+
+                <div class="item">
+                    <h2>Terms&Policies</h2>
+                    <ul>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Policies</a></li>
+                        <li><a href="#">Security</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
+                </div>  <!--(footer > .wrapper > .top > .item)-->
+
+                <div class="item">
+                    <h2>Press</h2>
+                    <ul>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">Awards</a></li>
+                    </ul>
+                </div>  <!--(footer > .wrapper > .top > .item)-->
+
+                <div class="item">
+                    <h2>Get In Touch</h2>
+                    <ul>
+                        <li><a href="#">Want Blood</a></li>
+                        <li><a href="#">Donate</a></li>
+                        <li><a href="#">Make A Blood Donor</a></li>
+                    </ul>
+                </div>  <!--(footer > .wrapper > .top > .item)-->
+            </section>  <!--(footer > .wrapper > .top)-->
+            <hr class="line">
+            <section class="below">
+                <ul class="card">
+                    <li>
+                        <a class="social-link1">
+                            <img src="template/footer/images/instagram.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="social-link2">
+                            <img src="template/footer/images/telegram.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="social-link3">
+                            <img src="template/footer/images/discord.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="social-link4">
+                            <img src="template/footer/images/whatsapp.png" alt="">
+                        </a>
+                    </li>
+                </ul>  <!--(footer > .wrapper > .below > .card)-->   
+                <h1>Donate Blood Save Life</h1>
+                <p>Copyrights &copy;2023-24. All Rights Recerved by <a href="#">Pure Link.</a></p>        
+            </section>  <!--(footer > .wrapper > .below)-->
+        </section>  <!--(footer > .wrapper)-->
+    </footer>   <!--(footer)-->
+    <script src="">
+    const dialog = document.querySelector("dialog");
+const showButton = document.querySelector("dialog + button");
+const closeButton = document.querySelector("dialog button");
+
+// "Show the dialog" button opens the dialog modally
+showButton.addEventListener("click", () => {
+  dialog.showModal();
+});
+
+// "Close" button closes the dialog
+closeButton.addEventListener("click", () => {
+  dialog.close();
+});
+    </script>
+</body>
+</html>
