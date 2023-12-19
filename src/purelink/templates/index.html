@@ -58,6 +58,64 @@
     </section>  <!--(#hero)-->
 
 
+<!--===================================================================================
+                                    WANT BLOOD POPUP!!!!
+        ====================================================================================-->
+        <div id="popup_container">
+        <div class="form-container" id="form_container">
+            <div class="closebtn">
+                <img src="{%static 'images/want_blood/images/close.png'%}" onclick="closepopup()"/>
+            </div>
+            <h2>Want Blood</h2>
+                <div class="input-group">
+                    <form action="">
+                        <input type="text" placeholder="Name" style="width: 240px;" class="custom-width-280" required>
+                        <br>
+                        <br>
+                        <select class="custom-width-100" style="width: 120px;" required>
+                            <option value="option1">Blood group</option>
+                            <option value="option2">A+</option>
+                            <option value="option3">A-</option>
+                            <option value="option4">B+</option>
+                            <option value="option5">B-</option>
+                            <option value="option6">AB+</option>
+                            <option value="option7">AB-</option>
+                            <option value="option8">O+</option>
+                            <option value="option9">O-</option>
+                        </select>
+                        <br>
+                        <br>
+                        <input type="tel" placeholder="Phone no" style="width: 240px;" class="custom-width-100" required>
+                        <br>
+                        <br>
+                        <input type="search" placeholder="Hospital" style="width: 240px;" class="custom-width-280" required>
+                    </div>
+                    <div class="input-group">
+                    <input type="tel" maxlength="2" placeholder="Age" style="width: 70px;" class="custom-width-50" pattern="[1-5][8-9]|60">
+                    <br>
+                    <br>
+                    <select class="custom-width-100" style="width: 170px;" required>
+                        <option value="option1">No of units</option>
+                        <option value="option2">1</option>
+                        <option value="option3">2</option>
+                        <option value="option4">3</option>
+                        <option value="option5">4</option>
+                        <option value="option6">5</option>
+                    </select>
+                    <br>
+                    <br>
+                    <input type="file" accept=".jpg, .jpeg, .png" style="width: 250px;" class="custom-width-280" required>
+                </div>
+            </form>
+            <div class="btn_contianer">
+                <button type="button" class="submit" id="submit" onclick="submit()">Submit</button>
+            </div>
+        </div>
+        <div>
+    <!--====================================================================================
+                                     WANT BLOOD POPUP END !!!!
+    ==================================================================================== -->
+
     <section id="association">
         <section class="wrapper">
             <h4>We are associated with these hospitals</h4>
