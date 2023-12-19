@@ -1,0 +1,98 @@
+.form-container {
+    width: 80%;
+    max-width: 700px;
+    background-color: #FFAEBB;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: absolute;
+    top: 100px;
+    left: 400px;
+}
+#popup_container {
+    display:none;
+}
+h2 {
+    width: 100%;
+    text-align: center;
+    color: #068686;
+    font-size: 30px;
+}
+
+.input-group {
+    width: 48%;
+    margin-bottom: 15px;
+}
+.closebtn{
+   position: relative;
+   height: 40px;
+   left:95%;
+}
+.closebtn img{
+    width: 20px;
+    height: 20px;
+    position: sticky;
+    top:23%;
+    left:23%;
+    cursor: pointer;
+}
+
+.input-group select,
+.input-group input[type="text"],
+.input-group input[type="tel"],
+.input-group input[type="search"],
+.input-group input[type="file"],
+.input-group button {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    background-color: #FFDEE3;
+    box-shadow: 0px 7px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 33px;
+}
+
+.input-group select {
+    cursor: pointer;
+}
+
+.input-group input.custom-width-280,
+.input-group input.custom-width-100,
+.input-group input.custom-width-50 {
+    width: calc(100% - 20px);
+}
+
+@media screen and (max-width: 600px) {
+    .input-group {
+        width: 100%;
+    }
+
+    .input-group button {
+        margin-left: 0;
+        padding: 10px; 
+    }
+}
+.btn_contianer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0;
+    padding: 10px 30px;
+    border-radius: 30px;
+    background-color: #FF7E9E; 
+    border: 5px white solid;
+    align-items: center; 
+    justify-content: center;
+     margin-left: 0;
+}
