@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../template/logo/logo.png">
     <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+
+<link rel="stylesheet" href="{% static 'css/popup.css' %}" type="text/css">
+
     <title>Pure Link</title>
 </head>
 <body>
@@ -25,7 +28,7 @@
                 </nav>
                 <div class="right">
                     <ul>
-                        <li><button class="btn-diamond">Want Blood</button></li>
+                        <li><button id="want_blood" class="btn-diamond" onclick=('popup()') >Want Blood</button></li>
                         <li><button class="btn-diamond">Donate</button></li>
                     </ul>
                 </div>       
@@ -340,5 +343,6 @@ closeButton.addEventListener("click", () => {
   dialog.close();
 });
     </script>
+<script src="{%static 'js/popup.js'%}"><\>
 </body>
 </html>
