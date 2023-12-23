@@ -27,6 +27,22 @@ window.addEventListener('load', function(){
             }; 
         });
     });
+    var container = document.getElementById('popup_container')
+    var popup_btn = document.getElementById('want_blood')
+    var close_btn = document.getElementById('closepopup')
+    var submit_btn = document.getElementById('submit')
+
+    function popup (){
+        container.style.display='block'
+    }   
+    popup_btn.addEventListener('click', popup);
+    function closepopup (){
+    container.style.display='none'
+    }
+    close_btn.addEventListener('click', closepopup);
+    popup_btn.addEventListener('click',function() {
+        popup();
+    })
 
     var side_bar = document.querySelector('.side-bar');
     var hamburger = document.querySelector('.test_burger');
@@ -37,20 +53,13 @@ window.addEventListener('load', function(){
         burgerToggle();
     });
 
-    var container = document.getElementById('popup_container')
-    var popup_btn = document.getElementById('want_blood')
-    var close_btn = document.getElementById('closepopup')
-    var submit_btn = document.getElementById('submit')
-
-    function popup (){
-        container.style.display='block'
-    }
-    popup_btn.addEventListener('click', popup);
-    function closepopup (){
-        container.style.display='none'
-    }
-    close_btn.addEventListener('click', closepopup);
-    popup_btn.addEventListener('click',function() {
-        popup();
-    })
+    const dialog = document.querySelector("dialog");
+        const showButton = document.querySelector("dialog + button");
+        const closeButton = document.querySelector("dialog button");
+        showButton.addEventListener("click", () => {
+            dialog.showModal();
+        });
+        closeButton.addEventListener("click", () => {
+            dialog.close();
+        });
 });
