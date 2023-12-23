@@ -28,7 +28,7 @@
                 </nav>
                 <div class="right">
                     <ul>
-                        <li><button id="want_blood" class="btn-diamond" onclick=('popup()') >Want Blood</button></li>
+                        <li><button id="want_blood" class="btn-diamond">Want Blood</button></li>
                         <li><button class="btn-diamond">Donate</button></li>
                     </ul>
                 </div>       
@@ -330,19 +330,19 @@
     </footer>   <!--(footer)-->
     <script src="">
     const dialog = document.querySelector("dialog");
-const showButton = document.querySelector("dialog + button");
-const closeButton = document.querySelector("dialog button");
+    const showButton = document.querySelector("dialog + button");
+    const closeButton = document.querySelector("dialog button");
 
 // "Show the dialog" button opens the dialog modally
-showButton.addEventListener("click", () => {
-  dialog.showModal();
-});
+    showButton.addEventListener("click", () => {
+        dialog.showModal();
+    });
 
 // "Close" button closes the dialog
-closeButton.addEventListener("click", () => {
-  dialog.close();
-});
+    closeButton.addEventListener("click", () => {
+        dialog.close();
+    });
     </script>
-<script src="{%static 'js/popup.js'%}"><\>
+<script src="{%static 'js/popup.js'%}"></script>
 </body>
 </html>

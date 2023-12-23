@@ -27,6 +27,7 @@ window.addEventListener('load', function(){
             }; 
         });
     });
+
     var side_bar = document.querySelector('.side-bar');
     var hamburger = document.querySelector('.test_burger');
     burgerToggle = () => {
@@ -35,4 +36,21 @@ window.addEventListener('load', function(){
     hamburger.addEventListener('click', function() {
         burgerToggle();
     });
+
+    var container = document.getElementById('popup_container')
+    var popup_btn = document.getElementById('want_blood')
+    var close_btn = document.getElementById('closepopup')
+    var submit_btn = document.getElementById('submit')
+
+    function popup (){
+        container.style.display='block'
+    }
+    popup_btn.addEventListener('click', popup);
+    function closepopup (){
+        container.style.display='none'
+    }
+    close_btn.addEventListener('click', closepopup);
+    popup_btn.addEventListener('click',function() {
+        popup();
+    })
 });
