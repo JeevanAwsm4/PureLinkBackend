@@ -1,0 +1,185 @@
+[33mcommit 73b6f593c3ad6fb2e537af2402c286cffad11deb[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: Mr.Sabith.A5 <135003378+NotoriousBusinessMan@users.noreply.github.com>
+Date:   Mon Dec 25 06:37:32 2023 +0000
+
+    donate popup
+
+[33mcommit 5f3cdc3dfbbc3aa4bc41d698ea7cd1204ddabf8e[m
+Author: Mr.Sabith.A5 <135003378+NotoriousBusinessMan@users.noreply.github.com>
+Date:   Mon Dec 25 06:29:08 2023 +0000
+
+    donate blood popup added
+
+[33mcommit 2a578702ad18d1345824b8d788db16fabd02a6f7[m[33m ([m[1;31morigin/JeevanWorks[m[33m)[m
+Author: Jeevan S Kumar <princefearlez8@gmail.com>
+Date:   Sat Dec 23 14:43:34 2023 +0530
+
+    Merge conflict!
+
+[33mcommit 02c61b8ca73eb579e2ba14e8d2c5b9a230abdbe8[m
+Merge: 25f85f8 441e366
+Author: Jeevan S Kumar <princefearlez8@gmail.com>
+Date:   Sat Dec 23 14:40:00 2023 +0530
+
+    Merge branch 'main' of https://github.com/JeevanAwsm4/PureLinkBackend
+
+[33mcommit 25f85f840219b77e272f7a4ef6e7b0d5b6e52cc4[m
+Author: Jeevan S Kumar <princefearlez8@gmail.com>
+Date:   Sat Dec 23 14:19:24 2023 +0530
+
+    Conflict Fixed Again
+
+[33mcommit d68a8354e852c979a41b800a4a693050880a4b64[m
+Author: Jeevan S Kumar <princefearlez8@gmail.com>
+Date:   Sat Dec 23 14:18:43 2023 +0530
+
+    Conflict Fixed
+
+[33mcommit 441e366fdcf3c1f21ac9ff5a699d421e6e149ec8[m
+Author: Jeevan S Kumar <princefearlez8@gmail.com>
+Date:   Sat Dec 23 13:34:46 2023 +0530
+
+    Index.html Updated && Popup.js deleted
+
+[33mcommit 4048778387c66d3049ff326530baf2726460b310[m
+Author: Jeevan S Kumar <princefearlez8@gmail.com>
+Date:   Sat Dec 23 13:32:57 2023 +0530
+
+    Changes in Aromal's Code
+
+[33mcommit 70837c33b655a0391d5a72c00cca60ce92246440[m
+Author: DeveloperAromal <153208245+DeveloperAromal@users.noreply.github.com>
+Date:   Tue Dec 19 15:19:05 2023 +0530
+
+    Update index.html
+
+[33mcommit 4b4781dcd019db0372c59dc0ce61d31410f397a3[m
+Author: DeveloperAromal <153208245+DeveloperAromal@users.noreply.github.com>
+Date:   Tue Dec 19 15:15:31 2023 +0530
+
+    created popup.js
+
+[33mcommit ed8e3d80c42c152712e94eb8c7b0e1dd54f9cc34[m
+Author: DeveloperAromal <153208245+DeveloperAromal@users.noreply.github.com>
+Date:   Tue Dec 19 15:14:33 2023 +0530
+
+    Added popup css
+
+[33mcommit 4c528b74cdf0691d833c405c3eb19d4d32444d48[m
+Author: DeveloperAromal <153208245+DeveloperAromal@users.noreply.github.com>
+Date:   Tue Dec 19 15:13:00 2023 +0530
+
+    Added Want blood popup
+
+[33mcommit 9119a5365a8397bf24bd5f3318eb7f223018e066[m
+Author: Morderca Jeevan <122619628+JeevanAwsm4@users.noreply.github.com>
+Date:   Sun Dec 10 09:01:08 2023 +0000
+
+    Django edit
+
+[33mcommit 7fab807272facdbf81060c3f007daf61b03c1182[m
+Author: Jeevan S Kumar <princefearlez8@gmail.com>
+Date:   Sun Dec 10 04:28:30 2023 +0530
+
+    GIt fix errorr
+
+[33mcommit 1c50ccd4fc631243ce3b674b3880085479f3cb60[m
+Author: Jeevan S Kumar <princefearlez8@gmail.com>
+Date:   Sun Dec 10 04:28:02 2023 +0530
+
+    Change to error
+
+[33mcommit a2975395dbb40c2a4fd973d026024d95bfd67d8a[m
+Author: Jeevan S Kumar <princefearlez8@gmail.com>
+Date:   Sun Dec 10 04:02:06 2023 +0530
+
+    Font issue fixed
+
+[33mcommit d54d164051577da8a5b742e163428301ffd3cd3e[m
+Merge: 30aec58 1f3d4aa
+Author: Jeevan S Kumar <princefearlez8@gmail.com>
+Date:   Sun Dec 10 03:56:27 2023 +0530
+
+    Merge branch 'main' of https://github.com/JeevanAwsm4/PureLinkBackend
+
+[33mcommit 30aec5840a6eb1399cb7b1c146881cded2dcfea9[m
+Merge: 404b68a a63160d
+Author: Jeevan S Kumar <princefearlez8@gmail.com>
+Date:   Sun Dec 10 03:54:15 2023 +0530
+
+    Font issue fixed
+
+[33mcommit 1f3d4aa5d9af03eee7a2a1ec0bd6441ff175781c[m
+Merge: 404b68a a63160d
+Author: Jeevan S Kumar <princefearlez8@gmail.com>
+Date:   Sun Dec 10 03:54:15 2023 +0530
+
+    Merge branch 'main' of https://github.com/JeevanAwsm4/PureLinkBackend
+
+[33mcommit 404b68aa714eb1687f119076508cbad935f0050c[m
+Merge: 9ea5a96 f64f805
+Author: Jeevan S Kumar <princefearlez8@gmail.com>
+Date:   Sun Dec 10 03:52:18 2023 +0530
+
+    Font issue recognised
+
+[33mcommit f64f805524a691d8706ece3443734f1527ef4724[m
+Author: DeveloperAromal <153208245+DeveloperAromal@users.noreply.github.com>
+Date:   Sun Dec 10 07:57:50 2023 +0530
+
+    Update index.html
+
+[33mcommit 484f819eef10527b55cde3e923978fdc38c8ae9e[m
+Author: DeveloperAromal <153208245+DeveloperAromal@users.noreply.github.com>
+Date:   Sun Dec 10 07:57:32 2023 +0530
+
+    Update index.html
+
+[33mcommit 26f20d7207c0c402197e61e1564e333a733d3a74[m
+Author: DeveloperAromal <153208245+DeveloperAromal@users.noreply.github.com>
+Date:   Sun Dec 10 07:56:05 2023 +0530
+
+    Update about.html
+
+[33mcommit a63160d494cf480175990bb9c9fdf35d748e8eee[m
+Merge: 9ea5a96 f64f805
+Author: Jeevan S Kumar <princefearlez8@gmail.com>
+Date:   Sun Dec 10 03:52:18 2023 +0530
+
+    Merge branch 'main' of https://github.com/JeevanAwsm4/PureLinkBackend
+
+[33mcommit 9ea5a9671b329456f6f635c1fc0cabb7c4904a10[m
+Author: DeveloperAromal <153208245+DeveloperAromal@users.noreply.github.com>
+Date:   Sun Dec 10 07:57:50 2023 +0530
+
+    Font issue Fixed
+
+[33mcommit 5f7f274455ae0ad70143ce99ebcbdd18817177df[m
+Author: Morderca Jeevan <122619628+JeevanAwsm4@users.noreply.github.com>
+Date:   Sat Dec 9 15:17:33 2023 +0000
+
+    template --> images
+
+[33mcommit c490570293eb29650ecb814a5c857b4cf3647f35[m
+Author: Morderca Jeevan <122619628+JeevanAwsm4@users.noreply.github.com>
+Date:   Thu Dec 7 10:59:13 2023 +0000
+
+    Django set up on web
+
+[33mcommit f442c51e1827775cb510f02ba7d15812e6fae52e[m
+Author: Morderca Jeevan <122619628+JeevanAwsm4@users.noreply.github.com>
+Date:   Thu Dec 7 10:54:01 2023 +0000
+
+    Django set up on Web
+
+[33mcommit 3416c8a2f34f7137c4572b9ca906c678ec129d8c[m
+Author: Jeevan S Kumar <princefearlez8@gmail.com>
+Date:   Wed Dec 6 17:29:16 2023 +0530
+
+    PureLink_Base
+
+[33mcommit 764afe89924fec093e5e925fd813f54c3ac20fa0[m
+Author: Jeevan S Kumar <princefearlez8@gmail.com>
+Date:   Wed Dec 6 16:54:51 2023 +0530
+
+    PureLink_Base
