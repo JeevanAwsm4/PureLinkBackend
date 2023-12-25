@@ -44,6 +44,38 @@ window.addEventListener('load', function(){
         popup();
     })
 
+
+
+
+
+    var donateContainer = document.getElementById('donatePopupContainer');
+    var donatePopUpbtn = document.getElementById('donate_blood'); // Assuming this is the button triggering the popup
+    var donateClosebtn = document.getElementById('closeDonatePopup');
+    var donateSubmitbtn = document.getElementById('donateSubmit');
+
+    function showPopup() {
+        console.log('blocked')
+        donateContainer.style.display = 'block';
+    }
+
+    function hidePopup() {
+        donateContainer.style.display = 'none';
+    }
+
+    // Event listener for opening the popup
+    donatePopUpbtn.addEventListener('click', showPopup);
+
+    // Event listener for closing the popup
+    donateClosebtn.addEventListener('click', hidePopup);
+
+    // Optional: Event listener for submitting the form (you can customize this according to your needs)
+    donateSubmitbtn.addEventListener('click', function () {
+        // Add your form submission logic here
+        // For example: validate form fields and submit data to a server
+        // After successful submission, you may choose to hide the popup
+        hidePopup();
+    });
+
     var side_bar = document.querySelector('.side-bar');
     var hamburger = document.querySelector('.test_burger');
     burgerToggle = () => {

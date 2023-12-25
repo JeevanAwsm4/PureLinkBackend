@@ -1,3 +1,86 @@
+#donatePopupContainer {
+    width: 80%;
+    max-width: 700px;
+    background-color: #FFAEBB;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: absolute;
+    top: 100px;
+    left: 400px;
+    font-family: 'inter-bold';
+}
+
+#donateFormContainer {
+    background: #FFAEBB;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.closeBtn {
+    text-align: right;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.inputGroup {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.inputRow {
+    flex: 1 1 calc(50% - 20px);
+    margin-bottom: 15px;
+}
+
+.customInput,
+.customSelect {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 22px;
+}
+
+.customSelect {
+    cursor: pointer;
+}
+
+.btnContainer {
+    text-align: center;
+}
+
+.submitButton {
+    background-color: #FF7E9E;
+    color: #000;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 22px;
+    cursor: pointer;
+    border: 2px solid #fff;
+}
+
+.submitButton:hover {
+    background-color: #45a049;
+}
+
+
+
+/*******DONATE POP ON TOP********/
 .form-container {
     width: 80%;
     max-width: 700px;
@@ -12,7 +95,7 @@
     top: 100px;
     left: 400px;
 }
-#popup_container {
+#popup_container , #donatePopupContainer{
     display:none;
 }
 h2 {

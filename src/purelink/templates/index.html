@@ -27,7 +27,7 @@
                 <div class="right">
                     <ul>
                         <li><button id="want_blood" class="btn-diamond">Want Blood</button></li>
-                        <li><button class="btn-diamond">Donate</button></li>
+                        <li><button id="donate_blood" class="btn-diamond">Donate</button></li>
                     </ul>
                 </div>       
             </header>   <!--(#hero > .bg-temp > header)-->
@@ -63,13 +63,13 @@
                                     WANT BLOOD POPUP!!!!
         ====================================================================================-->
         <div id="popup_container">
-        <div class="form-container" id="form_container">
-            <div class="closebtn">
-                <img src="{%static 'images/want_blood/images/close.png'%}" onclick="closepopup()"/>
-            </div>
-            <h2>Want Blood</h2>
-                <div class="input-group">
-                    <form action="">
+            <div class="form-container" id="form_container">
+                <div class="closebtn" id="closepopup">
+                    <img src="{%static 'images/want_blood/images/close.png'%}" onclick="closepopup()"/>
+                </div>
+                <h2>Want Blood</h2>
+                <form action="">
+                    <div class="input-group">
                         <input type="text" placeholder="Name" style="width: 240px;" class="custom-width-280" required>
                         <br>
                         <br>
@@ -92,29 +92,107 @@
                         <input type="search" placeholder="Hospital" style="width: 240px;" class="custom-width-280" required>
                     </div>
                     <div class="input-group">
-                    <input type="tel" maxlength="2" placeholder="Age" style="width: 70px;" class="custom-width-50" pattern="[1-5][8-9]|60">
-                    <br>
-                    <br>
-                    <select class="custom-width-100" style="width: 170px;" required>
-                        <option value="option1">No of units</option>
-                        <option value="option2">1</option>
-                        <option value="option3">2</option>
-                        <option value="option4">3</option>
-                        <option value="option5">4</option>
-                        <option value="option6">5</option>
-                    </select>
-                    <br>
-                    <br>
-                    <input type="file" accept=".jpg, .jpeg, .png" style="width: 250px;" class="custom-width-280" required>
-                </div>
-            </form>
-            <div class="btn_contianer">
-                <button type="button" class="submit" id="submit" onclick="submit()">Submit</button>
+                        <input type="tel" maxlength="2" placeholder="Age" style="width: 70px;" class="custom-width-50" pattern="[1-5][8-9]|60">
+                        <br>
+                        <br>
+                        <select class="custom-width-100" style="width: 170px;" required>
+                            <option value="option1">No of units</option>
+                            <option value="option2">1</option>
+                            <option value="option3">2</option>
+                            <option value="option4">3</option>
+                            <option value="option5">4</option>
+                            <option value="option6">5</option>
+                        </select>
+                        <br>
+                        <br>
+                        <input type="file" accept=".jpg, .jpeg, .png" style="width: 250px;" class="custom-width-280" required>
+                    </div>
+                    <div class="btn_contianer">
+                        <button type="button" class="submit" id="submit" onclick="submit()">Submit</button>
+                    </div>
+                </form>
             </div>
         </div>
-        <div>
     <!--====================================================================================
                                      WANT BLOOD POPUP END !!!!
+    ==================================================================================== -->
+
+
+
+
+    <!--====================================================================================
+                                     DONATE BLOOD POPUP !!!!
+    ==================================================================================== -->
+
+    <div id="donatePopupContainer">
+        <div class="formContainer" id="donateFormContainer">
+            <div class="closeBtn" id="closeDonatePopup">
+                <img src="{%static 'images/want_blood/images/close.png'%}" onclick="hidePopup()" alt="close.png"/>
+            </div>
+            <h2>Donate Blood Form</h2>
+            <form action="" id="donateForm">
+                <div class="inputGroup">
+                    <div class="inputRow">
+                        <input type="text" placeholder="Name" class="customInput" required id="donateName">
+                    </div>
+                    <div class="inputRow">
+                        <select class="customSelect" required id="donateBloodGroup">
+                            <option value="" disabled selected>Blood group</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                    </div>
+                    <div class="inputRow">
+                        <input type="tel" placeholder="Phone no" class="customInput" required id="donatePhoneNo">
+                    </div>
+                    <div class="inputRow">
+                        <input type="number" placeholder="Aadhaar Number" class="customInput" required id="donateAadhaarNumber">
+                    </div>
+                    <!-- <div class="inputRow">
+                        <label>Do you have any tattoos?</label>
+                        <br>
+                        <input type="radio" name="tattoo" value="yes" required id="donateTattooYes"> Yes
+                        <input type="radio" name="tattoo" value="no" required id="donateTattooNo"> No
+                    </div> -->
+                </div>
+                <div class="inputGroup">
+                    <div class="inputRow">
+                        <input type="number" placeholder="Age" class="customInput" required id="donateAge">
+                    </div>
+                    <!-- <div class="inputRow">
+                        <input type="text" placeholder="State" class="customInput" required id="donateState">
+                    </div>
+                    <div class="inputRow">
+                        <input type="text" placeholder="Taluk" class="customInput" required id="donateTaluk">
+                    </div>
+                    <div class="inputRow">
+                        <input type="text" placeholder="Panchayath" class="customInput" required id="donatePanchayath">
+                    </div> -->
+                    <div class="inputRow">
+                        <input type="text" placeholder="Address" class="customInput" required id="donateAddress">
+                    </div>
+                    <div class="inputRow">
+                        <label>Do you have any tattoos?</label>
+                        <br>
+                        <input type="radio" name="tattoo" value="yes" required id="donateTattooYes"> Yes
+                        <input type="radio" name="tattoo" value="no" required id="donateTattooNo"> No
+                    </div>
+                </div>
+                <div class="btnContainer">
+                    <button type="button" class="submitButton" id="donateSubmit" onclick="donateSubmit()">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--====================================================================================
+                                     DONATE BLOOD POPUP END !!!!
     ==================================================================================== -->
 
     <section id="association">
@@ -326,9 +404,6 @@
             </section>  <!--(footer > .wrapper > .below)-->
         </section>  <!--(footer > .wrapper)-->
     </footer>   <!--(footer)-->
-<<<<<<< HEAD
     <script src="{% static 'js/index.js' %}"></script>
-=======
->>>>>>> 441e366fdcf3c1f21ac9ff5a699d421e6e149ec8
 </body>
 </html>
