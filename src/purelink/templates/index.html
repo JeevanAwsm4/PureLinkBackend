@@ -7,6 +7,14 @@
     <link rel="icon" href="../template/logo/logo.png">
     <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/popup.css' %}" type="text/css">
+
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
     <title>Pure Link</title>
 </head>
 <body>
@@ -183,9 +191,18 @@
                         <input type="radio" name="tattoo" value="yes" required id="donateTattooYes"> Yes
                         <input type="radio" name="tattoo" value="no" required id="donateTattooNo"> No
                     </div>
+                    <div class="inputRow">
+                        <button id="open_map_btn" type="button">choose my location</button>
+
+                        
+                    </div>
                 </div>
                 <div class="btnContainer">
                     <button type="button" class="submitButton" id="donateSubmit" onclick="donateSubmit()">Submit</button>
+                </div>
+                <div id="mapbox">
+                    <div id="map"></div>
+                    <button id="close_the_map" type="button">close map</button>
                 </div>
             </form>
         </div>

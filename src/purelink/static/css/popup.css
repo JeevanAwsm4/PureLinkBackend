@@ -1,3 +1,26 @@
+#mapbox {
+    padding: 10px;
+    position: relative;
+    display: none;
+    height: 480px;
+    width: 480px;
+    background: #28b32f;
+}
+#map { 
+    display: block;
+    height: 440px; 
+    width: 440px;
+    position: absolute;
+    top: 13px;
+    left: 25px;
+    border-radius: 8px;
+}
+#mapbox button {
+    position: absolute;
+    bottom: 11px;
+    left: 209px;
+}
+/****open map styles****/
 #donatePopupContainer {
     width: 80%;
     max-width: 700px;

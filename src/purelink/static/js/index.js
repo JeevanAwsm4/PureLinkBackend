@@ -36,9 +36,9 @@ window.addEventListener('load', function(){
         container.style.display='block'
     }   
     popup_btn.addEventListener('click', popup);
-    function closepopup (){
-    container.style.display='none'
-    }
+    // function closepopup (){
+    //     container.style.display='none'
+    // }
     close_btn.addEventListener('click', closepopup);
     popup_btn.addEventListener('click',function() {
         popup();
@@ -81,7 +81,92 @@ window.addEventListener('load', function(){
     burgerToggle = () => {
         side_bar.classList.toggle('active')
     }; 
-    hamburger.addEventListener('click', function() {
-        burgerToggle();
+    // hamburger.addEventListener('click', function() {
+    //     burgerToggle();
+    // });
+
+    //map-scripts-leaflet
+    var mapbox = document.getElementById('mapbox');
+    var open_map_btn = document.getElementById('open_map_btn');
+    var map_close_btn = document.getElementById('close_the_map');
+    var firstTime = true; // Variable to track if it's the first time opening the map
+    var userLocation; // Variable to store user's location
+
+    open_map_btn.addEventListener('click', function (e) {
+        e.preventDefault()
+        mapbox.style.display = 'block';
+        // Get user's location and update the map
+        getUserLocation();
     });
+
+    map_close_btn.addEventListener('click', function (e) {
+        mapbox.style.display = 'none';
+    });
+
+    var map = L.map('map').setView([11.528255, 435.742383], 10);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    var marker = L.marker([11.528255, 435.742383]).addTo(map);
+    var circle = L.circle([11.528255, 435.742383], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 100
+    }).addTo(map);
+
+    marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+    circle.bindPopup("I am a circle.");
+
+    var popup = L.popup();
+    var clickLocation; // Variable to store the click location
+
+    function onMapClick(e) {
+        clickLocation = e.latlng;
+
+        // Update marker position
+        marker.setLatLng(clickLocation);
+
+        // Update map view
+        // map.setView(clickLocation);
+
+        if (circle) {
+            circle.setLatLng(clickLocation);
+        }
+
+        popup
+            .setLatLng(clickLocation)
+            .setContent("You clicked the map at " + clickLocation.toString())
+            .openOn(map);
+
+        console.log(clickLocation.lat , clickLocation.lng);
+    }
+
+    map.on('click', onMapClick);
+
+    function getUserLocation() {
+        if ("geolocation" in navigator) {
+            navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+        } else {
+            alert("Geolocation is not supported by your browser");
+        }
+
+        function successCallback(position) {
+            userLocation = [position.coords.latitude, position.coords.longitude];
+
+            // Set view to user's location only the first time
+            if (firstTime) {
+                map.setView(userLocation, 15);
+                firstTime = false;
+            }
+        }
+
+        function errorCallback(error) {
+            alert("Error getting user location: " + error.message);
+        }
+    }
+    
+    
 });
