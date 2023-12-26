@@ -1,3 +1,29 @@
+div.access_coordination {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+div.access_coordination button {
+    display: block;
+}
+#text-containers {
+    display: flex;
+    align-items: center;
+}
+.main-text-containers {
+    /* display: flex;
+    align-items: center;
+    display: inline; */
+}
+#latitude_text,#longitude_text {
+    color: #282828;
+    font-size: 15px;
+    margin-left: 8px;
+    display: inline;
+    padding-bottom: 2px;
+    border-bottom: 2px solid #000;
+    margin-bottom: 8px;
+}
 #mapbox {
     padding: 10px;
     position: relative;

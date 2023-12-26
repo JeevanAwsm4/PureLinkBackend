@@ -86,87 +86,43 @@ window.addEventListener('load', function(){
     // });
 
     //map-scripts-leaflet
-    var mapbox = document.getElementById('mapbox');
-    var open_map_btn = document.getElementById('open_map_btn');
-    var map_close_btn = document.getElementById('close_the_map');
-    var firstTime = true; // Variable to track if it's the first time opening the map
-    var userLocation; // Variable to store user's location
+    document.getElementById('open_map_btn').addEventListener('click', getLocation);
 
-    open_map_btn.addEventListener('click', function (e) {
-        e.preventDefault()
-        mapbox.style.display = 'block';
-        // Get user's location and update the map
-        getUserLocation();
-    });
-
-    map_close_btn.addEventListener('click', function (e) {
-        mapbox.style.display = 'none';
-    });
-
-    var map = L.map('map').setView([11.528255, 435.742383], 10);
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(map);
-
-    var marker = L.marker([11.528255, 435.742383]).addTo(map);
-    var circle = L.circle([11.528255, 435.742383], {
-        color: 'red',
-        fillColor: '#f03',
-        fillOpacity: 0.5,
-        radius: 100
-    }).addTo(map);
-
-    marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
-    circle.bindPopup("I am a circle.");
-
-    var popup = L.popup();
-    var clickLocation; // Variable to store the click location
-
-    function onMapClick(e) {
-        clickLocation = e.latlng;
-
-        // Update marker position
-        marker.setLatLng(clickLocation);
-
-        // Update map view
-        // map.setView(clickLocation);
-
-        if (circle) {
-            circle.setLatLng(clickLocation);
-        }
-
-        popup
-            .setLatLng(clickLocation)
-            .setContent("You clicked the map at " + clickLocation.toString())
-            .openOn(map);
-
-        console.log(clickLocation.lat , clickLocation.lng);
-    }
-
-    map.on('click', onMapClick);
-
-    function getUserLocation() {
-        if ("geolocation" in navigator) {
-            navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-        } else {
-            alert("Geolocation is not supported by your browser");
-        }
-
-        function successCallback(position) {
-            userLocation = [position.coords.latitude, position.coords.longitude];
-
-            // Set view to user's location only the first time
-            if (firstTime) {
-                map.setView(userLocation, 15);
-                firstTime = false;
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                alert("Geolocation is not supported by this browser.");
             }
         }
 
-        function errorCallback(error) {
-            alert("Error getting user location: " + error.message);
+        function showPosition(position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+
+            console.log("Latitude: " + latitude);
+            console.log("Longitude: " + longitude);
+
+            document.getElementById('latitude_text').innerText = `${latitude}`
+            document.getElementById('longitude_text').innerText = `${longitude}`
         }
-    }
+
+        function showError(error) {
+            if (error.code === 1) {
+                // User denied permission, ask again
+                var userResponse = confirm("You have denied permission to access your location. Do you want to enable location services?\n\n" +
+                    "To enable location services:\n" +
+                    "1. Open your browser settings.\n" +
+                    "2. Navigate to the privacy or location settings.\n" +
+                    "3. Enable location services for this site.");
+        
+                if (!userResponse) {
+                    alert("Location services are required to proceed.");
+                }
+            } else {
+                alert("Error getting location: " + error.message);
+            }
+        }
     
     
 });
