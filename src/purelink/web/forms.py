@@ -1,5 +1,5 @@
 from django import forms
-from .models import Donor
+from web.models import Donor
 
 class DonorForm(forms.ModelForm):
     class Meta:

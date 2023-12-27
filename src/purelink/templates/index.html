@@ -138,58 +138,33 @@
                 <img src="{%static 'images/want_blood/images/close.png'%}" onclick="hidePopup()" alt="close.png"/>
             </div>
             <h2>Donate Blood Form</h2>
-            <form action="{% url 'web:donate_blood' %}" id="donateForm">
+            <form action="{% url 'web:donate_blood' %}" method="post" id="donateForm">
+                {% csrf_token %}
                 <div class="inputGroup">
                     <div class="inputRow">
-                        <input type="text" placeholder="Name" class="customInput" required id="donateName">
+                        <input type="text" name="name" placeholder="Name" class="customInput" required id="donateName">
                     </div>
                     <div class="inputRow">
-                        <select class="customSelect" required id="donateBloodGroup">
-                            <option value="" disabled selected>Blood group</option>
-                            <option value="A+">A+</option>
-                            <option value="A-">A-</option>
-                            <option value="B+">B+</option>
-                            <option value="B-">B-</option>
-                            <option value="AB+">AB+</option>
-                            <option value="AB-">AB-</option>
-                            <option value="O+">O+</option>
-                            <option value="O-">O-</option>
-                        </select>
+                        {{ form.blood_group }}
                     </div>
                     <div class="inputRow">
-                        <input type="tel" placeholder="Phone no" class="customInput" required id="donatePhoneNo">
+                        <input type="tel" name="phone_no" placeholder="Phone no" class="customInput" required id="donatePhoneNo">
                     </div>
                     <div class="inputRow">
-                        <input type="number" placeholder="Aadhaar Number" class="customInput" required id="donateAadhaarNumber">
+                        <input type="number" name="aadhaar_number" placeholder="Aadhaar Number" class="customInput" required id="donateAadhaarNumber">
                     </div>
-                    <!-- <div class="inputRow">
+                    <div class="inputRow">
                         <label>Do you have any tattoos?</label>
                         <br>
-                        <input type="radio" name="tattoo" value="yes" required id="donateTattooYes"> Yes
-                        <input type="radio" name="tattoo" value="no" required id="donateTattooNo"> No
-                    </div> -->
+                        {{ form.has_tattoo }}
+                    </div>
                 </div>
                 <div class="inputGroup">
                     <div class="inputRow">
-                        <input type="number" placeholder="Age" class="customInput" required id="donateAge">
-                    </div>
-                    <!-- <div class="inputRow">
-                        <input type="text" placeholder="State" class="customInput" required id="donateState">
+                        <input type="number" name="age" placeholder="Age" class="customInput" required id="donateAge">
                     </div>
                     <div class="inputRow">
-                        <input type="text" placeholder="Taluk" class="customInput" required id="donateTaluk">
-                    </div>
-                    <div class="inputRow">
-                        <input type="text" placeholder="Panchayath" class="customInput" required id="donatePanchayath">
-                    </div> -->
-                    <div class="inputRow">
-                        <input type="text" placeholder="Address" class="customInput" required id="donateAddress">
-                    </div>
-                    <div class="inputRow">
-                        <label>Do you have any tattoos?</label>
-                        <br>
-                        <input type="radio" name="tattoo" value="yes" required id="donateTattooYes"> Yes
-                        <input type="radio" name="tattoo" value="no" required id="donateTattooNo"> No
+                        <input type="text" name="address" placeholder="Address" class="customInput" required id="donateAddress">
                     </div>
                     <div class="inputRow access_coordination">
                         <div id="main-containers">
