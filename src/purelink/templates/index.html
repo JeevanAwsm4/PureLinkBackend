@@ -140,40 +140,17 @@
             <h2>Donate Blood Form</h2>
             <form action="{% url 'web:donate_blood' %}" method="post" id="donateForm">
                 {% csrf_token %}
-                <div class="inputGroup">
-                    <div class="inputRow">
-                        <input type="text" name="name" placeholder="Name" class="customInput" required id="donateName">
-                    </div>
-                    <div class="inputRow">
-                        {{ form.blood_group }}
-                    </div>
-                    <div class="inputRow">
-                        <input type="tel" name="phone_no" placeholder="Phone no" class="customInput" required id="donatePhoneNo">
-                    </div>
-                    <div class="inputRow">
-                        <input type="number" name="aadhaar_number" placeholder="Aadhaar Number" class="customInput" required id="donateAadhaarNumber">
-                    </div>
-                    <div class="inputRow">
-                        <label>Do you have any tattoos?</label>
-                        <br>
-                        {{ form.has_tattoo }}
-                    </div>
-                </div>
-                <div class="inputGroup">
-                    <div class="inputRow">
-                        <input type="number" name="age" placeholder="Age" class="customInput" required id="donateAge">
-                    </div>
-                    <div class="inputRow">
-                        <input type="text" name="address" placeholder="Address" class="customInput" required id="donateAddress">
-                    </div>
-                    <div class="inputRow access_coordination">
-                        <div id="main-containers">
-                            <input class="customInput" value="" type="text" name="latitude" id="latitude" placeholder="latitude..." required>
-                            <input class="customInput" value="" type="text" name="longitude" id="longitude" placeholder="longitude..." required>
+                {% for field in form %}
+                    <div class="inputGroup special">
+                        <div class="inputRow">
+                            {{ field }}
+                            {% if field.errors %}
+                                <div class="error">{{ field.errors|striptags }}</div>
+                            {% endif %}
                         </div>
-                        <button id="open_map_btn" type="button">Access My coordinates</button>
                     </div>
-                </div>
+                {% endfor %}
+                <button id="open_map_btn" type="button">Access My coordinates</button>
                 <div class="btnContainer">
                     <button type="submit" class="submitButton" id="donateSubmit">Submit</button>
                 </div>

@@ -1,3 +1,6 @@
+.inputGroup.special {
+    width: 50%;
+}
 #main-containers {
     display:flex;
     align-items: center;
@@ -66,7 +69,10 @@ div.access_coordination button {
     left: 400px;
     font-family: 'inter-bold';
 }
-
+#donateForm {
+    display: flex;
+    flex-wrap: wrap;
+}
 #donateFormContainer {
     background: #FFAEBB;
     padding: 20px;

@@ -68,6 +68,7 @@ window.addEventListener('load', function(){
     // Event listener for closing the popup
     donateClosebtn.addEventListener('click', hidePopup);
 
+
     
 
     var side_bar = document.querySelector('.side-bar');

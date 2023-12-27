@@ -3,7 +3,8 @@ from web.forms import DonorForm
 
 
 def index(request):
-    return render(request,'index.html')
+    form = DonorForm()
+    return render(request,'index.html', {'form': form})
 
 
 def donate_blood(request):
