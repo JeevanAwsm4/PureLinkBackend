@@ -192,17 +192,15 @@
                         <input type="radio" name="tattoo" value="no" required id="donateTattooNo"> No
                     </div>
                     <div class="inputRow access_coordination">
+                        <div id="main-containers">
+                            <input class="customInput" value="" type="text" name="latitude" id="latitude" placeholder="latitude...">
+                            <input class="customInput" value="" type="text" name="longitude" id="longitude" placeholder="longitude...">
+                        </div>
                         <button id="open_map_btn" type="button">Access My coordinates</button>
-                        <div id="text-containers">
-                            <h5 class="main-text-containers">your lat: <h4 id="latitude_text"></h4></h5>
-                        </div>
-                        <div id="text-containers">
-                            <h5 class="main-text-containers">your lng: <h4 id="longitude_text"></h4></h5>
-                        </div>
                     </div>
                 </div>
                 <div class="btnContainer">
-                    <button type="button" class="submitButton" id="donateSubmit" onclick="donateSubmit()">Submit</button>
+                    <button type="submit" class="submitButton" id="donateSubmit">Submit</button>
                 </div>
             </form>
         </div>

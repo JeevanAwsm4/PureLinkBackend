@@ -68,13 +68,7 @@ window.addEventListener('load', function(){
     // Event listener for closing the popup
     donateClosebtn.addEventListener('click', hidePopup);
 
-    // Optional: Event listener for submitting the form (you can customize this according to your needs)
-    donateSubmitbtn.addEventListener('click', function () {
-        // Add your form submission logic here
-        // For example: validate form fields and submit data to a server
-        // After successful submission, you may choose to hide the popup
-        hidePopup();
-    });
+    
 
     var side_bar = document.querySelector('.side-bar');
     var hamburger = document.querySelector('.test_burger');
@@ -103,8 +97,8 @@ window.addEventListener('load', function(){
             console.log("Latitude: " + latitude);
             console.log("Longitude: " + longitude);
 
-            document.getElementById('latitude_text').innerText = `${latitude}`
-            document.getElementById('longitude_text').innerText = `${longitude}`
+            document.getElementById('latitude').value = latitude
+            document.getElementById('longitude').value = longitude
         }
 
         function showError(error) {

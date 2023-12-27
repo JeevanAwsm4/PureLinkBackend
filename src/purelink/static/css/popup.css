@@ -1,3 +1,12 @@
+#main-containers {
+    display:flex;
+    align-items: center;
+}
+#latitude,#longitude {
+    width:45%;
+    margin-right: 8px;
+    margin-bottom: 10px;
+}
 div.access_coordination {
     display: flex;
     flex-direction: column;
