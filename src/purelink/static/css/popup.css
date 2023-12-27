@@ -19,11 +19,6 @@ div.access_coordination button {
     display: flex;
     align-items: center;
 }
-.main-text-containers {
-    /* display: flex;
-    align-items: center;
-    display: inline; */
-}
 #latitude_text,#longitude_text {
     color: #282828;
     font-size: 15px;
