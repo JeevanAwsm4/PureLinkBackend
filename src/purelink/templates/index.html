@@ -138,7 +138,7 @@
                 <img src="{%static 'images/want_blood/images/close.png'%}" onclick="hidePopup()" alt="close.png"/>
             </div>
             <h2>Donate Blood Form</h2>
-            <form action="" id="donateForm">
+            <form action="{% url 'web:donate_blood' %}" id="donateForm">
                 <div class="inputGroup">
                     <div class="inputRow">
                         <input type="text" placeholder="Name" class="customInput" required id="donateName">
@@ -193,8 +193,8 @@
                     </div>
                     <div class="inputRow access_coordination">
                         <div id="main-containers">
-                            <input class="customInput" value="" type="text" name="latitude" id="latitude" placeholder="latitude...">
-                            <input class="customInput" value="" type="text" name="longitude" id="longitude" placeholder="longitude...">
+                            <input class="customInput" value="" type="text" name="latitude" id="latitude" placeholder="latitude..." required>
+                            <input class="customInput" value="" type="text" name="longitude" id="longitude" placeholder="longitude..." required>
                         </div>
                         <button id="open_map_btn" type="button">Access My coordinates</button>
                     </div>
