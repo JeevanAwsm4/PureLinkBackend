@@ -45,3 +45,6 @@ def donate_blood(request):
 
     return render(request, 'index.html', {'form': form})
 
+
+def registered(request):
+    return render(request,'already.html')
