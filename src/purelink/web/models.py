@@ -35,7 +35,7 @@ class Donor(models.Model):
 
 
 class LogIn(models.Model):
-    phone_number = models.CharField(max_length=15,null=True, blank=True)
+    phone_number = models.CharField(max_length=15, default='')
 
     def __str__(self):
         return self.phone_number

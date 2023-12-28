@@ -70,7 +70,8 @@
 <body>
     <div>
         <h1>Log In</h1>
-        <form action="{% url 'web:registered' %}" method="post" id="phoneNumberForm" onsubmit="return showOtpField()">
+        <form action="{% url 'web:trying_to_register' %}" method="post" id="phoneNumberForm">
+            {% csrf_token %}
             <label for="phoneNumber">Enter Phone Number:</label>
             <input type="tel" id="phoneNumber" name="phoneNumber" required>
             <br>

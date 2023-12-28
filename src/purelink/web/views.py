@@ -49,32 +49,30 @@ def donate_blood(request):
 
 
 def registered(request):
-    phone_number = request.POST.get("phoneNumber")  # Assuming you meant to use "email" instead of "phoneNumber"
+    return render(request, 'already.html')
+
+
+def trying_to_register(request):
+    phone_number = request.POST.get("phoneNumber")
 
     if not LogIn.objects.filter(phone_number=phone_number).exists():
         LogIn.objects.create(
-            phone_number=phone_number
-            # other fields...
+            phone_number = phone_number
         )
 
         response_data = {
-            "status": "info",
-            "value": "success",
-            'title': "An OTP has been sent",
-            "message": "Check your messages to receive the OTP"
+            "status":"info",
+            "value":"success",
+            'title':"an OTP has been sent",
+            "message":"You have successfully registered to our newsletter",
+            'otp':'999'
         }
-        
-        return render(request, 'already.html', {'response_data': response_data})
 
     else:
         response_data = {
-            "status": "error",
-            "value": "error",
-            'title': "An Error occurred",
-            "message": "Try again after some time"
+            "status":"error",
+            "value":"error",
+            'title':"ERROR occured",
+            "message":"Try later"
         }
-
-        return render(request, 'already.html', {'response_data': response_data})
-
-    # If the code reaches here, it means the registration was successful
-    return HttpResponse(json.dumps(response_data), content_type="application/javascript")
+    return HttpResponse(json.dumps(response_data),content_type="application/javascript")
