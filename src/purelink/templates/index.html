@@ -7,6 +7,7 @@
     <link rel="icon" href="../template/logo/logo.png">
     <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/popup.css' %}" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.2/dist/sweetalert2.min.css" rel="stylesheet">
 
 
     <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -177,7 +178,7 @@
                     <div class="btnContainer">
                         <button type="submit" class="submitButton" id="donateSubmit">Submit</button>
                         <span id="donateformerrormessage"></span>
-                        <h5 id="alreadyregistered"><a href="{% url 'web:already_registered' %}">Already Registered ?</a></h5>
+                        <h5 id="alreadyregistered"><a href="{% url 'web:registered' %}">Already Registered ?</a></h5>
                     </div>
                 </div>
             </form>
@@ -397,6 +398,7 @@
             </section>  <!--(footer > .wrapper > .below)-->
         </section>  <!--(footer > .wrapper)-->
     </footer>   <!--(footer)-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.2/dist/sweetalert2.all.min.js"></script>
     <script src="{% static 'js/index.js' %}"></script>
 </body>
 </html>

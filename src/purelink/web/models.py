@@ -32,3 +32,10 @@ class Donor(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class LogIn(models.Model):
+    phone_number = models.CharField(max_length=15,null=True, blank=True)
+
+    def __str__(self):
+        return self.phone_number

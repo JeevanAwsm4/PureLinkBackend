@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>already registered</title>
 
     <style>
@@ -14,7 +17,11 @@
             margin: 0;
             background-color: #f4f4f4;
         }
-
+        h1 {
+            text-align: center;
+            font-family: 'inter-bold';
+            margin-bottom: 20px;
+        }
         #otpField {
             display: none;
         }
@@ -25,11 +32,13 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-family: 'inter-bold';
         }
 
         label {
             display: block;
             margin-bottom: 8px;
+            font-family: 'inter-bold';
         }
 
         input {
@@ -40,6 +49,7 @@
             border: 1px solid #ccc;
             border-radius: 4px;
             font-size: 16px;
+            font-family: 'inter-bold';
         }
 
         button {
@@ -59,7 +69,8 @@
 </head>
 <body>
     <div>
-        <form id="phoneNumberForm" onsubmit="return showOtpField()">
+        <h1>Log In</h1>
+        <form action="{% url 'web:registered' %}" method="post" id="phoneNumberForm" onsubmit="return showOtpField()">
             <label for="phoneNumber">Enter Phone Number:</label>
             <input type="tel" id="phoneNumber" name="phoneNumber" required>
             <br>

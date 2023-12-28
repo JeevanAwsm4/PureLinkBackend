@@ -6,5 +6,5 @@ app_name = "web"
 urlpatterns = [
     path('',index,name="index"),
     path('donate_blood/',donate_blood,name="donate_blood"),
-    path('already_registered/',registered,name="already_registered")
+    path('already_registered/',registered,name="registered")
 ]

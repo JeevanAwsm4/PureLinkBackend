@@ -123,7 +123,6 @@ window.addEventListener('load', function(){
     
     document.getElementById('donateForm').addEventListener('submit', function (e) {
         e.preventDefault();
-    
         var form = e.target;
         var url = form.getAttribute('action');
         var method = form.getAttribute('method');
@@ -139,7 +138,17 @@ window.addEventListener('load', function(){
             var title = data.title;
             var message = data.message;
             var status = data.status;
+            var redirect = data.redirect;
     
+            Swal.fire({
+                icon:status,
+                title:title,
+                message:message
+            })
+
+            if(status === 'error'){
+                window.location.href = redirect
+            }
             var errorMessageSpan = document.getElementById('donateformerrormessage');
             errorMessageSpan.innerText = title + ': ' + message;
     

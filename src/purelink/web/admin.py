@@ -1,5 +1,5 @@
 from django.contrib import admin
-from web.models import Donor
+from web.models import Donor,LogIn
 
 
 
@@ -9,3 +9,5 @@ class DonorAdmin(admin.ModelAdmin):
     search_fields = ('name', 'aadhaar_number', 'phone_no', 'address')
 
 admin.site.register(Donor,DonorAdmin)
+
+admin.site.register(LogIn)
