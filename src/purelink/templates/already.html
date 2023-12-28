@@ -78,6 +78,20 @@
         function showOtpField() {
             document.getElementById('phoneNumberForm').style.display = 'none';
             document.getElementById('otpField').style.display = 'block';
+            // For testing, show alert with OTP '1800'
+            alert('Your OTP is: 1800');
+            return false; // Prevents form submission for demonstration purposes
+        }
+
+        function verifyOtp() {
+            var enteredOtp = document.getElementById('otp').value;
+            // For testing, check if entered OTP is '1800'
+            if (enteredOtp === '1800') {
+                // Redirect to empty.html
+                window.location.href = 'empty.html';
+            } else {
+                alert('Invalid OTP. Please try again.');
+            }
             return false; // Prevents form submission for demonstration purposes
         }
     </script>
