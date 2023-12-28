@@ -1,6 +1,32 @@
 .inputGroup.special {
     width: 50%;
 }
+.topContainer{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.bottomContainer{
+    padding-top: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputLeft{
+    width: 48%;
+}
+.inputRight{
+    width: 48%;
+}
+
+.inputRow{
+    width: 100%;
+}
+#donateAddress {
+    resize: none;
+    height: 38px;
+}
 #main-containers {
     display:flex;
     align-items: center;
@@ -71,7 +97,8 @@ div.access_coordination button {
 }
 #donateForm {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
 }
 #donateFormContainer {
     background: #FFAEBB;

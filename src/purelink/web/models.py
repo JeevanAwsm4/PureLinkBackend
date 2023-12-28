@@ -15,6 +15,7 @@ class Donor(models.Model):
     ]
 
     TATTOO_CHOICES = [
+        ('','any tatoo'),
         ('yes', 'Yes'),
         ('no', 'No'),
     ]

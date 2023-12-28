@@ -12,7 +12,7 @@ class DonorForm(forms.ModelForm):
             'aadhaar_number': forms.TextInput(attrs={'class': 'customInput', 'placeholder': 'Enter your Aadhaar number','id':'donateAadhaarNumber'}),
             'age': forms.NumberInput(attrs={'class': 'customInput', 'placeholder': 'Enter your age','id':'donateAge'}),
             'address': forms.Textarea(attrs={'class': 'customInput', 'placeholder': 'Enter your address','id':'donateAddress'}),
-            'has_tattoo': forms.RadioSelect(attrs={'class': 'customRadio','id':''}),
+            'has_tattoo': forms.Select(attrs={'class': 'customInput','id':''}),
             'latitude': forms.TextInput(attrs={'class': 'customInput', 'placeholder': 'Enter latitude','id':'latitude'}),
             'longitude': forms.TextInput(attrs={'class': 'customInput', 'placeholder': 'Enter longitude','id':'longitude'}),
         }

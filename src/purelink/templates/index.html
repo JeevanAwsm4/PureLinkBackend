@@ -140,19 +140,43 @@
             <h2>Donate Blood Form</h2>
             <form action="{% url 'web:donate_blood' %}" method="post" id="donateForm">
                 {% csrf_token %}
-                {% for field in form %}
-                    <div class="inputGroup special">
+                <div class="topContainer">
+                    <div class="inputLeft">
                         <div class="inputRow">
-                            {{ field }}
-                            {% if field.errors %}
-                                <div class="error">{{ field.errors|striptags }}</div>
-                            {% endif %}
+                            {{form.name}}
+                        </div>
+                        <div class="inputRow">
+                            {{form.phone_no}}
+                        </div>
+                        <div class="inputRow">
+                            {{form.age}}
+                        </div>
+                        <div class="inputRow">
+                            {{form.has_tattoo}}
                         </div>
                     </div>
-                {% endfor %}
-                <button id="open_map_btn" type="button">Access My coordinates</button>
-                <div class="btnContainer">
-                    <button type="submit" class="submitButton" id="donateSubmit">Submit</button>
+                    <div class="inputRight">
+                        <div class="inputRow">
+                            {{form.blood_group}}
+                        </div>
+                        <div class="inputRow">
+                            {{form.aadhaar_number}}
+                        </div>
+                        <div class="inputRow">
+                            {{form.address}}
+                        </div>
+                        <div class="inputRow">
+                            {{form.latitude}}
+                            {{form.longitude}}
+                        </div>
+                        <button id="open_map_btn" type="button">Access My coordinates</button>
+                    </div>
+                </div>
+
+                <div class="bottomContainer">
+                    <div class="btnContainer">
+                        <button type="submit" class="submitButton" id="donateSubmit">Submit</button>
+                    </div>
                 </div>
             </form>
         </div>
