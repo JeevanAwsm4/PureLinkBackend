@@ -12,7 +12,9 @@
     justify-content: center;
     align-items: center;
 }
-
+#donateformerrormessage {
+    display: block;
+}
 .inputLeft{
     width: 48%;
 }

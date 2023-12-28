@@ -83,41 +83,76 @@ window.addEventListener('load', function(){
     //map-scripts-leaflet
     document.getElementById('open_map_btn').addEventListener('click', getLocation);
 
-        function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition, showError);
-            } else {
-                alert("Geolocation is not supported by this browser.");
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition, showError);
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    }
+
+    function showPosition(position) {
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+
+        console.log("Latitude: " + latitude);
+        console.log("Longitude: " + longitude);
+
+        document.getElementById('latitude').value = latitude
+        document.getElementById('longitude').value = longitude
+    }
+
+    function showError(error) {
+        if (error.code === 1) {
+            // User denied permission, ask again
+            var userResponse = confirm("You have denied permission to access your location. Do you want to enable location services?\n\n" +
+                "To enable location services:\n" +
+                "1. Open your browser settings.\n" +
+                "2. Navigate to the privacy or location settings.\n" +
+                "3. Enable location services for this site.");
+    
+            if (!userResponse) {
+                alert("Location services are required to proceed.");
             }
+        } else {
+            alert("Error getting location: " + error.message);
         }
+    }
+    
 
-        function showPosition(position) {
-            var latitude = position.coords.latitude;
-            var longitude = position.coords.longitude;
-
-            console.log("Latitude: " + latitude);
-            console.log("Longitude: " + longitude);
-
-            document.getElementById('latitude').value = latitude
-            document.getElementById('longitude').value = longitude
-        }
-
-        function showError(error) {
-            if (error.code === 1) {
-                // User denied permission, ask again
-                var userResponse = confirm("You have denied permission to access your location. Do you want to enable location services?\n\n" +
-                    "To enable location services:\n" +
-                    "1. Open your browser settings.\n" +
-                    "2. Navigate to the privacy or location settings.\n" +
-                    "3. Enable location services for this site.");
-        
-                if (!userResponse) {
-                    alert("Location services are required to proceed.");
-                }
-            } else {
-                alert("Error getting location: " + error.message);
+    
+    document.getElementById('donateForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+    
+        var form = e.target;
+        var url = form.getAttribute('action');
+        var method = form.getAttribute('method');
+    
+        var formData = new FormData(form);
+    
+        fetch(url, {
+            method: method,
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            var title = data.title;
+            var message = data.message;
+            var status = data.status;
+    
+            var errorMessageSpan = document.getElementById('donateformerrormessage');
+            errorMessageSpan.innerText = title + ': ' + message;
+    
+            if (status === 'success') {
+                form.reset();
             }
-        }
+        })
+        .catch(error => {
+            console.log('Error occurred', error);
+        });
+    });
+    
+
     
     
 });
