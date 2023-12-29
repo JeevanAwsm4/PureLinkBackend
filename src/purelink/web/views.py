@@ -40,7 +40,6 @@ def donate_blood(request):
                     "value": "success",
                     'title': "An OTP has been sent",
                     "message": "Check your messages",
-                    'otp':1800,
                 }
             
             return HttpResponse(json.dumps(response_data), content_type="application/json")
