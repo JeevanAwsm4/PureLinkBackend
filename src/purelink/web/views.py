@@ -72,7 +72,7 @@ def check_phone_number(request):
             "value": "success",
             'title': "An OTP has been sent",
             "message": "Check your messages!",
-            'otp':'999'
+            'otp':otp
         }
 
         
