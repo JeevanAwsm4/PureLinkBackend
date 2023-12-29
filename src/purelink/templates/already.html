@@ -128,14 +128,79 @@
                 var otp = data.otp;
 
                 if(otp){
-                    console.log(otp)
                     Swal.fire({
                         icon: status,
                         title: title,
                         message: message
                     });
+
+                    document.getElementById('otpField').addEventListener('submit', function (e) {
+                        e.preventDefault();
+                        handleOtpVerificationFormSubmit(e.target);
+                    });
+
+                    function handleOtpVerificationFormSubmit(form) {
+                        var url = form.getAttribute('action');
+                        var method = form.getAttribute('method');
+
+                        var formData = new FormData(form);
+
+                        
+                        console.log('code working')
+                        fetch(url, {
+                            method: method,
+                            body: formData
+                        })
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok');
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            var title = data.title;
+                            var message = data.message;
+                            var status = data.status;
+                            var redirect_two = data.redirect;
+
+                            // console.log('Entered OTP:',formData.get('otp'));
+                            // console.log('Stored OTP:',otp);
+                            var field_of_otp = document.getElementById('otp')
+                            if(field_of_otp.value === otp){
+                                Swal.fire({
+                                    icon:status,
+                                    title:title,
+                                    message:message
+                                })
+                                setTimeout(function () {
+                                    window.location.href = redirect_two;
+                                }, 2000);
+                            } else {
+                                Swal.fire({
+                                    icon:status,
+                                    title:title,
+                                    message:message
+                                })
+                            }
+                            Swal.fire({
+                                icon: status,
+                                title: title,
+                                text: message
+                            });
+
+                            // var errorMessageSpan = document.getElementById(form.id + 'errormessage');
+                            // errorMessageSpan.innerText = title + ': ' + message;
+
+                            if (status === 'success') {
+                                // Additional logic after OTP verification success
+                            }
+                        })
+                        .catch(error => {
+                            console.log('Error occurred', error);
+                        });
+                    }
                 } else {
-                    console.log('hi')
+                    console.log(message)
                 }
 
                 
@@ -152,8 +217,8 @@
                     window.location.href = redirect;
                 }
 
-                var errorMessageSpan = document.getElementById(form.id + 'errormessage');
-                errorMessageSpan.innerText = title + ': ' + message;
+                // var errorMessageSpan = document.getElementById(form.id + 'errormessage');
+                // errorMessageSpan.innerText = title + ': ' + message;
 
                 if (status === 'success') {
                     form.reset();
@@ -177,55 +242,9 @@
             
         // }
 
-        document.getElementById('otpField').addEventListener('submit', function (e) {
-            e.preventDefault();
-            handleOtpVerificationFormSubmit(e.target);
-        });
+        
 
-        function handleOtpVerificationFormSubmit(form) {
-            var url = form.getAttribute('action');
-            var method = form.getAttribute('method');
-
-            var formData = new FormData(form);
-
-            
-            console.log('code working')
-            fetch(url, {
-                method: method,
-                body: formData
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                var title = data.title;
-                var message = data.message;
-                var status = data.status;
-                var otp = data.stored_otp;
-
-                console.log('Entered OTP:',formData.get('otp'));
-                console.log('Stored OTP:',data.stored_otp,data.title);
-
-                Swal.fire({
-                    icon: status,
-                    title: title,
-                    text: message
-                });
-
-                var errorMessageSpan = document.getElementById(form.id + 'errormessage');
-                errorMessageSpan.innerText = title + ': ' + message;
-
-                if (status === 'success') {
-                    // Additional logic after OTP verification success
-                }
-            })
-            .catch(error => {
-                console.log('Error occurred', error);
-            });
-        }
+        
     </script>
 </body>
 </html>

@@ -10,6 +10,9 @@ def index(request):
     return render(request,'index.html', {'form': form})
 
 
+def empty(request):
+    return render(request,'empty.html')
+
 def donate_blood(request):
     if request.method == 'POST':
         form = DonorForm(request.POST)
@@ -60,13 +63,16 @@ def check_phone_number(request):
         donor = get_object_or_404(Donor, phone_no=phone_number)
 
         # If a donor is found, return success response
+
         otp = '999'
+        request.session['otp'] = otp
+
         response_data = {
             "status": "info",
             "value": "success",
             'title': "An OTP has been sent",
             "message": "Check your messages!",
-            'otp':otp
+            'otp':'999'
         }
 
         
@@ -91,13 +97,14 @@ def checkotp(request):
         # Retrieve stored OTP from the session
         stored_otp = request.session.get('otp', '')
 
+
         if user_entered_otp == stored_otp:
             # OTP is correct
             response_data = {
                 "status": "success",
                 "title":"Successfull",
                 "message": "OTP verification successful",
-                'stored_otp':stored_otp
+                'redirect':'/empty/'
             }
         else:
             # OTP is incorrect
@@ -105,7 +112,6 @@ def checkotp(request):
                 "status": "error",
                 'title':'OTP failed',
                 "message": "Incorrect OTP",
-                'stored_otp':stored_otp
             }
 
         # Clear the stored OTP from the session
