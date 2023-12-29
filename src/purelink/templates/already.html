@@ -79,7 +79,8 @@
             <button type="submit">Submit</button>
         </form>
 
-        <form action="" method="post" id="otpField">
+        <form action="{% url 'web:checkotp' %}" method="post" id="otpField">
+            {% csrf_token %}
             <label for="otp">Enter OTP:</label>
             <input type="text" id="otp" name="otp" required>
             <br>
@@ -92,6 +93,7 @@
         function showOtpField() {
             document.getElementById('phoneNumberForm').style.display = 'none';
             document.getElementById('otpField').style.display = 'block';
+            
             // For testing, show alert with OTP '1800'
             // alert('Your OTP is: 1800');
             // return false; // Prevents form submission for demonstration purposes
@@ -125,7 +127,6 @@
                 var redirect = data.redirect;
                 var otp = data.otp;
 
-                console.log(typeof otp)
 
                 Swal.fire({
                     icon: status,
@@ -133,18 +134,13 @@
                     message: message
                 });
 
-                document.getElementById('otpField').addEventListener('submit', function (e) {
-                    e.preventDefault();
-                });
-
-                var otpField = document.getElementById('otp');
-                if (otpField.value === otp) {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'OTP Verified',
-                        text: 'You have successfully verified your OTP.'
-                    });
-                }
+                // if (otpField.value === otp) {
+                //     Swal.fire({
+                //         icon: 'success',
+                //         title: 'OTP Verified',
+                //         text: 'You have successfully verified your OTP.'
+                //     });
+                // }
 
                 if (status === 'error') {
                     window.location.href = redirect;
@@ -155,6 +151,62 @@
 
                 if (status === 'success') {
                     form.reset();
+                }
+            })
+            .catch(error => {
+                console.log('Error occurred', error);
+            });
+        }
+
+
+        function showOtpVerificationForm(otp) {
+            // Display the OTP verification form
+            document.getElementById('otpField').style.display = 'block';
+
+            // Set the OTP value in the hidden input field
+            // var otpField = document.getElementById('otp');
+            // otpField.value = otp;
+
+            // Add event listener for OTP verification form submission
+            document.getElementById('otpField').addEventListener('submit', function (e) {
+                e.preventDefault();
+                handleOtpVerificationFormSubmit(e.target);
+            });
+        }
+
+        function handleOtpVerificationFormSubmit(form) {
+            var url = form.getAttribute('action');
+            var method = form.getAttribute('method');
+
+            var formData = new FormData(form);
+
+            fetch(url, {
+                method: method,
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                var title = data.title;
+                var message = data.message;
+                var status = data.status;
+
+                
+                Swal.fire({
+                    icon: status,
+                    title: title,
+                    text: message
+                });
+
+                var errorMessageSpan = document.getElementById(form.id + 'errormessage');
+                errorMessageSpan.innerText = title + ': ' + message;
+
+                if (status === 'success') {
+                    // Additional logic after OTP verification success
                 }
             })
             .catch(error => {

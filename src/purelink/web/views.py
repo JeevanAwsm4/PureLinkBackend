@@ -99,7 +99,7 @@ def checkotp(request):
             # OTP is incorrect
             response_data = {
                 "status": "error",
-                'title':'OTP failed'
+                'title':'OTP failed',
                 "message": "Incorrect OTP"
             }
 
