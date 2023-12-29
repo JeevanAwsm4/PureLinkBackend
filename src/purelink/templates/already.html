@@ -127,12 +127,18 @@
                 var redirect = data.redirect;
                 var otp = data.otp;
 
+                if(otp){
+                    console.log(otp)
+                    Swal.fire({
+                        icon: status,
+                        title: title,
+                        message: message
+                    });
+                } else {
+                    console.log('hi')
+                }
 
-                Swal.fire({
-                    icon: status,
-                    title: title,
-                    message: message
-                });
+                
 
                 // if (otpField.value === otp) {
                 //     Swal.fire({
@@ -159,20 +165,22 @@
         }
 
 
-        function showOtpVerificationForm(otp) {
-            // Display the OTP verification form
-            document.getElementById('otpField').style.display = 'block';
+        // function showOtpVerificationForm(otp) {
+        //     // Display the OTP verification form
+        //     document.getElementById('otpField').style.display = 'block';
 
-            // Set the OTP value in the hidden input field
-            // var otpField = document.getElementById('otp');
-            // otpField.value = otp;
+        //     // Set the OTP value in the hidden input field
+        //     // var otpField = document.getElementById('otp');
+        //     // otpField.value = otp;
 
-            // Add event listener for OTP verification form submission
-            document.getElementById('otpField').addEventListener('submit', function (e) {
-                e.preventDefault();
-                handleOtpVerificationFormSubmit(e.target);
-            });
-        }
+        //     // Add event listener for OTP verification form submission
+            
+        // }
+
+        document.getElementById('otpField').addEventListener('submit', function (e) {
+            e.preventDefault();
+            handleOtpVerificationFormSubmit(e.target);
+        });
 
         function handleOtpVerificationFormSubmit(form) {
             var url = form.getAttribute('action');
@@ -180,6 +188,8 @@
 
             var formData = new FormData(form);
 
+            
+            console.log('code working')
             fetch(url, {
                 method: method,
                 body: formData
@@ -194,8 +204,11 @@
                 var title = data.title;
                 var message = data.message;
                 var status = data.status;
+                var otp = data.stored_otp;
 
-                
+                console.log('Entered OTP:',formData.get('otp'));
+                console.log('Stored OTP:',data.stored_otp,data.title);
+
                 Swal.fire({
                     icon: status,
                     title: title,

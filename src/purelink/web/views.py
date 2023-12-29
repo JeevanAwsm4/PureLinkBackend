@@ -60,13 +60,16 @@ def check_phone_number(request):
         donor = get_object_or_404(Donor, phone_no=phone_number)
 
         # If a donor is found, return success response
+        otp = '999'
         response_data = {
             "status": "info",
             "value": "success",
             'title': "An OTP has been sent",
             "message": "Check your messages!",
-            "otp": "999"
+            'otp':otp
         }
+
+        
 
         return HttpResponse(json.dumps(response_data), content_type="application/json")
 
@@ -93,14 +96,16 @@ def checkotp(request):
             response_data = {
                 "status": "success",
                 "title":"Successfull",
-                "message": "OTP verification successful"
+                "message": "OTP verification successful",
+                'stored_otp':stored_otp
             }
         else:
             # OTP is incorrect
             response_data = {
                 "status": "error",
                 'title':'OTP failed',
-                "message": "Incorrect OTP"
+                "message": "Incorrect OTP",
+                'stored_otp':stored_otp
             }
 
         # Clear the stored OTP from the session
