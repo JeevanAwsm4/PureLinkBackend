@@ -160,62 +160,6 @@ window.addEventListener('load', function(){
             console.log('Error occurred', error);
         });
     });
-    
-
-
-    document.getElementById('phoneNumberForm').addEventListener('submit', function (e) {
-        e.preventDefault();
-        handleFormSubmit(e.target);
-    });
-    
-    function handleFormSubmit(form) {
-        var url = form.getAttribute('action');
-        var method = form.getAttribute('method');
-    
-        var formData = new FormData(form);
-    
-        fetch(url, {
-            method: method,
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            var title = data.title;
-            var message = data.message;
-            var status = data.status;
-            var redirect = data.redirect;
-            var otp = data.otp;
-    
-            Swal.fire({
-                icon: status,
-                title: title,
-                message: message
-            })
-    
-            console.log(title)
-            var otpField = document.getElementById('otp')
-            if(otpField.value === otp){
-                Swal.fire({
-                    icon: success,
-                    title: title,
-                    message: message
-                })
-            }
-            if (status === 'error') {
-                window.location.href = redirect;
-            }
-    
-            var errorMessageSpan = document.getElementById(form.id + 'errormessage');
-            errorMessageSpan.innerText = title + ': ' + message;
-    
-            if (status === 'success') {
-                form.reset();
-            }
-        })
-        .catch(error => {
-            console.log('Error occurred', error);
-        });
-    }
 
     
     

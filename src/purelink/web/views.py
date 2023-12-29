@@ -1,7 +1,7 @@
 import json
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
-from web.models import Donor,LogIn
+from django.shortcuts import render, redirect, get_object_or_404
+from web.models import Donor
 from web.forms import DonorForm
 
 
@@ -52,27 +52,66 @@ def registered(request):
     return render(request, 'already.html')
 
 
-def trying_to_register(request):
-    phone_number = request.POST.get("phoneNumber")
+def check_phone_number(request):
+    if request.method == 'POST':
+        phone_number = request.POST.get('phoneNumber')
 
-    if not LogIn.objects.filter(phone_number=phone_number).exists():
-        LogIn.objects.create(
-            phone_number = phone_number
-        )
+        # Check if a donor with the given phone number exists
+        donor = get_object_or_404(Donor, phone_no=phone_number)
 
+        # If a donor is found, return success response
         response_data = {
-            "status":"info",
-            "value":"success",
-            'title':"an OTP has been sent",
-            "message":"You have successfully registered to our newsletter",
-            'otp':'999'
+            "status": "info",
+            "value": "success",
+            'title': "An OTP has been sent",
+            "message": "Check your messages!",
+            "otp": "999"
         }
 
-    else:
-        response_data = {
-            "status":"error",
-            "value":"error",
-            'title':"ERROR occured",
-            "message":"Try later"
-        }
-    return HttpResponse(json.dumps(response_data),content_type="application/javascript")
+        return HttpResponse(json.dumps(response_data), content_type="application/json")
+
+    # If the request method is not POST, return an error response
+    response_data = {
+        "status": "error",
+        "value": "error",
+        'title': "Invalid Request",
+        "message": "Invalid request method"
+    }
+
+    return HttpResponse(json.dumps(response_data), content_type="application/json")
+
+
+def checkotp(request):
+    if request.method == 'POST':
+        user_entered_otp = request.POST.get('otp')
+
+        # Retrieve stored OTP from the session
+        stored_otp = request.session.get('otp', '')
+
+        if user_entered_otp == stored_otp:
+            # OTP is correct
+            response_data = {
+                "status": "success",
+                "title":"Successfull",
+                "message": "OTP verification successful"
+            }
+        else:
+            # OTP is incorrect
+            response_data = {
+                "status": "error",
+                'title':'OTP failed'
+                "message": "Incorrect OTP"
+            }
+
+        # Clear the stored OTP from the session
+        request.session.pop('otp', None)
+
+        return HttpResponse(json.dumps(response_data), content_type="application/json")
+
+    # If the request method is not POST, return an error response
+    response_data = {
+        "status": "error",
+        "message": "Invalid request method"
+    }
+
+    return HttpResponse(json.dumps(response_data), content_type="application/json")
