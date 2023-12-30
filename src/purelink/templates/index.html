@@ -23,7 +23,7 @@
         <section class="bgTemp">
             <header>
                 <h1 class="left">
-                    <a href="#"><img src="{% static 'images/logo/logo.png'%}" alt="logo"></a>
+                    <a href="#"><img src="{% static 'template/logo/logo.png'%}" alt="logo"></a>
                 </h1>
                 <nav>
                     <ul>
@@ -47,14 +47,14 @@
                     <ul>
                         <li>
                             <button class="hero">
-                                <img src="template/hero/images/reg.png" alt="" width="35px" height="">
+                                <img src="{% static 'template/hero/images/reg.png' %}" alt="" width="35px" height="">
                                 <span class="now">now!</span>
                                 <span class="play">Register</span>
                             </button>
                         </li>
                         <li>
                             <button class="hero">
-                                <img src="template/hero/images/contact.png" alt="" width="35px" height="">
+                                <img src="{% static 'template/hero/images/contact.png' %}" alt="" width="35px" height="">
                                 <span class="now">us!</span>
                                 <span class="play">Contact</span>
                             </button>
@@ -74,7 +74,7 @@
         <div id="popup_container">
             <div class="form-container" id="form_container">
                 <div class="closebtn" id="closepopup">
-                    <img src="{%static 'images/want_blood/images/close.png'%}" onclick="closepopup()"/>
+                    <img src="{% static 'template/want_blood/images/close.png' %}" onclick="closepopup()"/>
                 </div>
                 <h2>Want Blood</h2>
                 <form action="">
@@ -136,7 +136,7 @@
     <div id="donatePopupContainer">
         <div class="formContainer" id="donateFormContainer">
             <div class="closeBtn" id="closeDonatePopup">
-                <img src="{%static 'images/want_blood/images/close.png'%}" onclick="hidePopup()" alt="close.png"/>
+                <img src="{% static 'template/want_blood/images/close.png' %}" onclick="hidePopup()" alt="close.png"/>
             </div>
             <h2>Donate Blood Form</h2>
             <form action="{% url 'web:donate_blood' %}" method="post" id="donateForm">
@@ -198,10 +198,10 @@
         <section class="wrapper">
             <h4>We are associated with these hospitals</h4>
             <ul>
-                <li><img src="template/testimonial/images/amrita-removebg-preview.png" alt=""></li>
-                <li><img src="template/testimonial/images/appolo-removebg-preview.png" alt=""></li>
-                <li><img src="template/testimonial/images/kims-removebg-preview.png" alt=""></li>
-                <li><img src="template/testimonial/images/vps-removebg-preview.png" alt=""></li>
+                <li><img src="{% static 'template/testimonial/images/amrita-removebg-preview.png' %}" alt=""></li>
+                <li><img src="{% static 'template/testimonial/images/appolo-removebg-preview.png' %}" alt=""></li>
+                <li><img src="{% static 'template/testimonial/images/kims-removebg-preview.png' %}" alt=""></li>
+                <li><img src="{% static 'template/testimonial/images/vps-removebg-preview.png' %}" alt=""></li>
                 <!-- <li><img src="template/testimonial/images/aster.png" alt=""></li> -->
             </ul>
         </section>  <!--(#association > .wrapper)-->
@@ -214,10 +214,10 @@
             <div class="left">
                 <h1>The Gift of Life: Blood Donation</h1>
                 <p>Every drop counts! Blood donation is a simple yet impactful act of kindness that can save lives. When you donate blood, you provide a lifeline to those in need, be it accident victims, surgical patients, or individuals battling serious illnesses.</p>
-                <a href="#">Why Donate Blood <span><img src="template/why_donate/images/right_arrow.png" alt="image"></span></a>
+                <a href="#">Why Donate Blood <span><img src="{% static 'template/why_donate/images/right_arrow.png' %}" alt="image"></span></a>
                 <button class="arrow"><span>Donate</span></button>
             </div>
-            <div class="right"><img src="template/why_donate/images/donating.png" alt="image"></div>
+            <div class="right"><img src="{% static 'template/why_donate/images/donating.png' %}" alt="image"></div>
         </section>  <!--(#why_donate > .wrapper)-->
         <hr class="line">
     </section>  <!--(#why_donate)-->
@@ -226,12 +226,12 @@
     <section id="camp">
         <section class="wrapper flex">
             <div class="left">
-                <img src="template/donate_section/images/Medical research-bro.svg" alt="image">
+                <img src="{% static 'template/donate_section/images/Medical research-bro.svg' %}" alt="image">
             </div>
             <div class="right">
                 <h1>High Facilitated Camps</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias quia minus dolor? Praesentium, nisi? Minima, mollitia ab aperiam ea voluptate, iure rerum asperiores harum ratione temporibus molestiae hic. Nesciunt, saepe.</p>
-                <a href="#">Know More <span><img src="template/why_donate/images/right_arrow.png" alt="image"></span></a>
+                <a href="#">Know More <span><img src="{% static 'template/why_donate/images/right_arrow.png' %}" alt="image"></span></a>
             </div>
         </section>  <!--(#camp > .wrapper)-->
         <hr class="line">
@@ -241,7 +241,7 @@
     <section id="home_blood">
         <section class="wrapper flex">
             <div class="left">
-                <img src="template/home_blood_collection/images/Nursing home-bro.svg" alt="image">
+                <img src="{% static 'template/home_blood_collection/images/Nursing home-bro.svg' %}" alt="image">
             </div>  <!--(#home_blood > .left)-->
             <div class="right">
                 <h1>Home Blood Collection</h1>
@@ -300,7 +300,7 @@
             <ul>
                 <li>
                     <div class="image">
-                        <img src="template/medical_team/images/dctr1.jpg" alt="image">
+                        <img src="{% static 'template/medical_team/images/dctr1.jpg' %}" alt="image">
                     </div>
                     <span class="name">Dr. David Anderson</span>
                     <h6>Cardiovascular Surgery</h6>
@@ -308,7 +308,7 @@
                 </li>
                 <li>
                     <div class="image">
-                        <img src="template/medical_team/images/dctr2.jfif" alt="image">
+                        <img src="{% static 'template/medical_team/images/dctr2.jfif' %}" alt="image">
                     </div>
                     <span class="name">Dr. Sarah Mitchell</span>
                     <h6>Hematology</h6>
@@ -316,7 +316,7 @@
                 </li>
                 <li>
                     <div class="image">
-                        <img src="template/medical_team/images/dctr3.png" alt="image">
+                        <img src="{% static 'template/medical_team/images/dctr3.png' %}" alt="image">
                     </div>
                     <span class="name">Dr. Michael Roberts</span>
                     <h6>Pediatric Hematology-Oncology</h6>
@@ -332,7 +332,7 @@
         <section class="wrapper">
             <section class="top flex">
                 <div class="item1">
-                    <span class="logo"><img src="template/logo/logo.png" alt="image"></span>
+                    <span class="logo"><img src="{% static 'template/logo/logo.png' %}" alt="image"></span>
                     <h1><span>1200</span> Donors Already Connected</h1>
                 </div>  <!--(footer > .wrapper > .top > .item1)-->
 
@@ -379,22 +379,22 @@
                 <ul class="card">
                     <li>
                         <a class="social-link1">
-                            <img src="template/footer/images/instagram.png" alt="">
+                            <img src="{% static 'template/footer/images/instagram.png' %}" alt="">
                         </a>
                     </li>
                     <li>
                         <a class="social-link2">
-                            <img src="template/footer/images/telegram.png" alt="">
+                            <img src="{% static 'template/footer/images/telegram.png' %}" alt="">
                         </a>
                     </li>
                     <li>
                         <a class="social-link3">
-                            <img src="template/footer/images/discord.png" alt="">
+                            <img src="{% static 'template/footer/images/discord.png' %}" alt="">
                         </a>
                     </li>
                     <li>
                         <a class="social-link4">
-                            <img src="template/footer/images/whatsapp.png" alt="">
+                            <img src="{% static 'template/footer/images/whatsapp.png' %}" alt="">
                         </a>
                     </li>
                 </ul>  <!--(footer > .wrapper > .below > .card)-->   

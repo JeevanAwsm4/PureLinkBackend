@@ -1,26 +1,26 @@
 @font-face {
     font-family: 'inter-black';
-    src: url(../images/font/static/Inter-Black.ttf);
+    src: url(../template/font/static/Inter-Black.ttf);
 }
 @font-face {
     font-family: 'inter-bold';
-    src: url(../images/font/static/Inter-Bold.ttf);
+    src: url(../template/font/static/Inter-Bold.ttf);
 }
 @font-face {
     font-family: 'inter-extra-bold';
-    src: url(../images/font/static/Inter-ExtraBold.ttf);
+    src: url(../template/font/static/Inter-ExtraBold.ttf);
 }
 @font-face {
     font-family: 'inter-extra-light';
-    src: url(../images/font/static/Inter-ExtraLight.ttf);
+    src: url(../template/font/static/Inter-ExtraLight.ttf);
 }
 @font-face {
     font-family: 'inter-light';
-    src: url(../images/font/static/Inter-Light.ttf);
+    src: url(../template/font/static/Inter-Light.ttf);
 }
 @font-face {
     font-family: 'inter-medium';
-    src: url(../images/font/static/Inter-Medium.ttf);
+    src: url(../template/font/static/Inter-Medium.ttf);
 }
 @font-face {
     font-family: 'inter-regular';
@@ -28,11 +28,11 @@
 }
 @font-face {
     font-family: 'inter-semi-bold';
-    src: url(../images/font/static/Inter-SemiBold.ttf);
+    src: url(../template/font/static/Inter-SemiBold.ttf);
 }
 @font-face {
     font-family: 'inter-thin';
-    src: url(../images/font/static/Inter-Thin.ttf);
+    src: url(../template/font/static/Inter-Thin.ttf);
 }
 .menu {
     --s: 20px; /* control the size */

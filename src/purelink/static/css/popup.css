@@ -121,6 +121,8 @@ h2 {
 form {
     margin-top: 20px;
     width: 100%;
+    display:flex;
+    flex-wrap:wrap;
 }
 
 .inputGroup {
