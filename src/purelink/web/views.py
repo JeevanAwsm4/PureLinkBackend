@@ -9,6 +9,8 @@ from . models import *
 from rest_framework.response import Response 
 from . serializer import *
 from random import randint
+from django.core import serializers
+
 
 
 def index(request):
@@ -67,7 +69,9 @@ def check_phone_number(request):
         # Check if a donor with the given phone number exists
         donor = get_object_or_404(Donor, phone_no=phone_number)
 
-        # If a donor is found, return success response
+        user_data = Donor.objects.filter(phone_no=phone_number)
+
+        user_data_json = serializers.serialize('json', user_data)
 
         otp = '999'
         request.session['otp'] = otp
@@ -77,6 +81,7 @@ def check_phone_number(request):
             "value": "success",
             'title': "An OTP has been sent",
             "message": "Check your messages!",
+            "userdata": user_data_json,
             'otp':otp
         }
 

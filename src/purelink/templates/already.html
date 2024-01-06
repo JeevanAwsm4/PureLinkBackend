@@ -127,6 +127,11 @@
                 var redirect = data.redirect;
                 var otp = data.otp;
 
+                if(data.userdata){
+                    const newdata = (JSON.parse(data.userdata))[0];
+                    sessionStorage.setItem("userinfo", newdata.fields);
+                }
+
                 if(otp){
                     Swal.fire({
                         icon: status,
@@ -173,7 +178,10 @@
                                     message:message
                                 })
                                 setTimeout(function () {
-                                    window.location.href = redirect_two;
+                                    if(sessionStorage.getItem("userinfo")){
+                                        console.log("Data found")
+                                    }
+                                    // window.location.href = redirect_two;
                                 }, 2000);
                             } else {
                                 Swal.fire({
