@@ -135,9 +135,16 @@ def checkotp(request):
 
 def want_blood(request):
     if request.method == 'POST':
+        hospitals = get_hospitals_from_excel()
         form = Wantbloodform(request.POST)
         if form.is_valid():
             phone_number = form.cleaned_data['phone_no']
+            selected_hospital_name = request.POST.get('hospitals')
+            selected_hospital = next((h for h in hospitals if h['name'] == selected_hospital_name), None)
+            if selected_hospital:
+                form.instance.latitude = selected_hospital['latitude']
+                form.instance.longitude = selected_hospital['longitude']
+                form.save()
             
             # Check if a user with the given phone number already exists
             existing_user = Donor.objects.filter(phone_no=phone_number).first()
@@ -167,7 +174,7 @@ def want_blood(request):
     else:
         form = Wantbloodform()
 
-    return render(request, 'index.html', {'form': form})
+    return render(request, 'want_blood.html', {'form': form, 'hospitals': hospitals})
 
 class Toreact(APIView): 
     
@@ -183,4 +190,21 @@ class Toreact(APIView):
         serializer = DonorData(data=request.data) 
         if serializer.is_valid(raise_exception=True): 
             serializer.save() 
-            return  Response(serializer.data) 
+            return  Response(serializer.data)
+def get_hospitals_from_excel():
+    workbook = load_workbook('path/to/your/excel_file.xlsx')
+    sheet = workbook.active
+
+    hospitals = []
+    for row in sheet.iter_rows(min_row=2, values_only=True):
+        hospital_name = row[0]
+        latitude = row[1]
+        longitude = row[2]
+
+        hospitals.append({
+            'name': hospital_name,
+            'latitude': latitude,
+            'longitude': longitude,
+        })
+
+    return hospitals

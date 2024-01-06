@@ -98,7 +98,13 @@
                         <input type="tel" placeholder="Phone no" style="width: 240px;" class="custom-width-100" required>
                         <br>
                         <br>
-                        <input type="search" placeholder="Hospital" style="width: 240px;" class="custom-width-280" required>
+                       <select class="custom-width-280" name="hospitals" required>
+                            <option value="" disabled selected>Select Hospital</option>
+                            {% for hospital in hospitals %}
+                            <option value="{{ hospital.name }}">{{ hospital.name }}</option>
+                            {% endfor %}
+                            </select>
+
                     </div>
                     <div class="input-group">
                         <input type="tel" maxlength="2" placeholder="Age" style="width: 70px;" class="custom-width-50" pattern="[1-5][8-9]|60">
