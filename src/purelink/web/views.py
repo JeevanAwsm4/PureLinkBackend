@@ -10,7 +10,12 @@ from rest_framework.response import Response
 from . serializer import *
 from random import randint
 from openpyxl import load_workbook
+import os
 
+def get_excel_path():
+    static_dir = os.path.join(BASE_DIR, 'static')
+    excel_file_path = os.path.join(static_dir, 'data', 'Hospitals.xlsx')
+    return excel_file_path
 
 def index(request):
     form = DonorForm()
@@ -192,7 +197,8 @@ class Toreact(APIView):
             serializer.save() 
             return  Response(serializer.data)
 def get_hospitals_from_excel():
-    workbook = load_workbook('path/to/your/excel_file.xlsx')
+    excel_sheet_path = get_excel_path()
+    workbook = load_workbook(excel_sheet_path)
     sheet = workbook.active
 
     hospitals = []
