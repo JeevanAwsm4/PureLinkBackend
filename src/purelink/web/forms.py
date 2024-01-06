@@ -1,5 +1,5 @@
 from django import forms
-from web.models import Donor,Wantbloodform
+from web.models import Donor,Wantblood
 
 class DonorForm(forms.ModelForm):
     class Meta:
