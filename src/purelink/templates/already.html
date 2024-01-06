@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     {% load static %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.2/dist/sweetalert2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.2/dist/sweetalert2.min.css" rel="stylesheet" />
     <title>already registered</title>
 
     <style>
@@ -18,28 +19,31 @@
             margin: 0;
             background-color: #f4f4f4;
         }
+
         h1 {
             text-align: center;
-            font-family: 'inter-bold';
+            font-family: "inter-bold";
             margin-bottom: 20px;
         }
+
         #otpField {
             display: none;
         }
 
-        #phoneNumberForm, #otpField {
+        #phoneNumberForm,
+        #otpField {
             text-align: center;
             background-color: #ffffff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            font-family: 'inter-bold';
+            font-family: "inter-bold";
         }
 
         label {
             display: block;
             margin-bottom: 8px;
-            font-family: 'inter-bold';
+            font-family: "inter-bold";
         }
 
         input {
@@ -50,7 +54,7 @@
             border: 1px solid #ccc;
             border-radius: 4px;
             font-size: 16px;
-            font-family: 'inter-bold';
+            font-family: "inter-bold";
         }
 
         button {
@@ -68,22 +72,24 @@
         }
     </style>
 </head>
+
 <body>
     <div>
         <h1>Log In</h1>
-        <form action="{% url 'web:check_phone_number' %}" method="post" id="phoneNumberForm" onsubmit="return showOtpField()">
+        <form action="{% url 'web:check_phone_number' %}" method="post" id="phoneNumberForm"
+            onsubmit="return showOtpField()">
             {% csrf_token %}
             <label for="phoneNumber">Enter Phone Number:</label>
-            <input type="tel" id="phoneNumber" name="phoneNumber" required>
-            <br>
+            <input type="tel" id="phoneNumber" name="phoneNumber" required />
+            <br />
             <button type="submit">Submit</button>
         </form>
 
         <form action="{% url 'web:checkotp' %}" method="post" id="otpField">
             {% csrf_token %}
             <label for="otp">Enter OTP:</label>
-            <input type="text" id="otp" name="otp" required>
-            <br>
+            <input type="text" id="otp" name="otp" required />
+            <br />
             <button type="submit">Verify OTP</button>
         </form>
     </div>
@@ -91,152 +97,157 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.2/dist/sweetalert2.all.min.js"></script>
     <script>
         function showOtpField() {
-            document.getElementById('phoneNumberForm').style.display = 'none';
-            document.getElementById('otpField').style.display = 'block';
-            
+            document.getElementById("phoneNumberForm").style.display = "none";
+            document.getElementById("otpField").style.display = "block";
+
             // For testing, show alert with OTP '1800'
             // alert('Your OTP is: 1800');
             // return false; // Prevents form submission for demonstration purposes
         }
 
-        document.getElementById('phoneNumberForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-            handleFormSubmit(e.target);
-        });
+        document
+            .getElementById("phoneNumberForm")
+            .addEventListener("submit", function (e) {
+                e.preventDefault();
+                handleFormSubmit(e.target);
+            });
 
         function handleFormSubmit(form) {
-            var url = form.getAttribute('action');
-            var method = form.getAttribute('method');
+            var url = form.getAttribute("action");
+            var method = form.getAttribute("method");
 
             var formData = new FormData(form);
 
             fetch(url, {
                 method: method,
-                body: formData
+                body: formData,
             })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                var title = data.title;
-                var message = data.message;
-                var status = data.status;
-                var redirect = data.redirect;
-                var otp = data.otp;
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error("Network response was not ok");
+                    }
+                    return response.json();
+                })
+                .then((data) => {
+                    var title = data.title;
+                    var message = data.message;
+                    var status = data.status;
+                    var redirect = data.redirect;
+                    var otp = data.otp;
 
-                if(data.userdata){
-                    const newdata = (JSON.parse(data.userdata))[0];
-                    sessionStorage.setItem("userinfo", newdata.fields);
-                }
+                    if (data.userdata) {
+                        const newuserdata = JSON.parse(data.userdata)[0];
+                        sessionStorage.setItem(
+                            "userdata",
+                            JSON.stringify(newuserdata.fields)
+                        );
+                    }
 
-                if(otp){
-                    Swal.fire({
-                        icon: status,
-                        title: title,
-                        message: message
-                    });
+                    if (otp) {
+                        Swal.fire({
+                            icon: status,
+                            title: title,
+                            message: message,
+                        });
 
-                    document.getElementById('otpField').addEventListener('submit', function (e) {
-                        e.preventDefault();
-                        handleOtpVerificationFormSubmit(e.target);
-                    });
-
-                    function handleOtpVerificationFormSubmit(form) {
-                        var url = form.getAttribute('action');
-                        var method = form.getAttribute('method');
-
-                        var formData = new FormData(form);
-
-                        
-                        console.log('code working')
-                        fetch(url, {
-                            method: method,
-                            body: formData
-                        })
-                        .then(response => {
-                            if (!response.ok) {
-                                throw new Error('Network response was not ok');
-                            }
-                            return response.json();
-                        })
-                        .then(data => {
-                            var title = data.title;
-                            var message = data.message;
-                            var status = data.status;
-                            var redirect_two = data.redirect;
-
-                            // console.log('Entered OTP:',formData.get('otp'));
-                            // console.log('Stored OTP:',otp);
-                            var field_of_otp = document.getElementById('otp')
-                            if(field_of_otp.value === otp){
-                                Swal.fire({
-                                    icon:status,
-                                    title:title,
-                                    message:message
-                                })
-                                setTimeout(function () {
-                                    if(sessionStorage.getItem("userinfo")){
-                                        console.log("Data found")
-                                    }
-                                    // window.location.href = redirect_two;
-                                }, 2000);
-                            } else {
-                                Swal.fire({
-                                    icon:status,
-                                    title:title,
-                                    message:message
-                                })
-                            }
-                            Swal.fire({
-                                icon: status,
-                                title: title,
-                                text: message
+                        document
+                            .getElementById("otpField")
+                            .addEventListener("submit", function (e) {
+                                e.preventDefault();
+                                handleOtpVerificationFormSubmit(e.target);
                             });
 
-                            // var errorMessageSpan = document.getElementById(form.id + 'errormessage');
-                            // errorMessageSpan.innerText = title + ': ' + message;
+                        function handleOtpVerificationFormSubmit(form) {
+                            var url = form.getAttribute("action");
+                            var method = form.getAttribute("method");
 
-                            if (status === 'success') {
-                                // Additional logic after OTP verification success
-                            }
-                        })
-                        .catch(error => {
-                            console.log('Error occurred', error);
-                        });
+                            var formData = new FormData(form);
+
+                            console.log("code working");
+                            fetch(url, {
+                                method: method,
+                                body: formData,
+                            })
+                                .then((response) => {
+                                    if (!response.ok) {
+                                        throw new Error("Network response was not ok");
+                                    }
+                                    return response.json();
+                                })
+                                .then((data) => {
+                                    var title = data.title;
+                                    var message = data.message;
+                                    var status = data.status;
+                                    var redirect_two = data.redirect;
+
+                                    // console.log('Entered OTP:',formData.get('otp'));
+                                    // console.log('Stored OTP:',otp);
+                                    var field_of_otp = document.getElementById("otp");
+                                    if (field_of_otp.value === otp) {
+                                        Swal.fire({
+                                            icon: status,
+                                            title: title,
+                                            message: message,
+                                        });
+                                        setTimeout(function () {
+                                            if (sessionStorage.getItem("userdata")) {
+                                                const newdata = JSON.parse(
+                                                    sessionStorage.getItem("userdata")
+                                                );
+                                                window.location.href = `http://localhost:3000/dashboard?aadhaar_number="${newdata.aadhaar_number}"&&address="${newdata.address}"&&age="${newdata.age}"&&blood_group="${newdata.blood_group}"&&has_tattoo="${newdata.has_tattoo}"&&latitude="${newdata.latitude}"&&longitude="${newdata.longitude}"&&name="${newdata.name}"&&phone_no="${newdata.phone_no}"`;
+                                            }
+                                        }, 2000);
+                                    } else {
+                                        Swal.fire({
+                                            icon: status,
+                                            title: title,
+                                            message: message,
+                                        });
+                                    }
+                                    Swal.fire({
+                                        icon: status,
+                                        title: title,
+                                        text: message,
+                                    });
+
+                                    // var errorMessageSpan = document.getElementById(form.id + 'errormessage');
+                                    // errorMessageSpan.innerText = title + ': ' + message;
+
+                                    if (status === "success") {
+                                        // Additional logic after OTP verification success
+                                    }
+                                })
+                                .catch((error) => {
+                                    console.log("Error occurred", error);
+                                });
+                        }
+                    } else {
+                        console.log(message);
                     }
-                } else {
-                    console.log(message)
-                }
 
-                
+                    // if (otpField.value === otp) {
+                    //     Swal.fire({
+                    //         icon: 'success',
+                    //         title: 'OTP Verified',
+                    //         text: 'You have successfully verified your OTP.'
+                    //     });
+                    // }
 
-                // if (otpField.value === otp) {
-                //     Swal.fire({
-                //         icon: 'success',
-                //         title: 'OTP Verified',
-                //         text: 'You have successfully verified your OTP.'
-                //     });
-                // }
+                    if (status === "error") {
+                        window.location.href = redirect;
+                    }
 
-                if (status === 'error') {
-                    window.location.href = redirect;
-                }
+                    // var errorMessageSpan = document.getElementById(form.id + 'errormessage');
+                    // errorMessageSpan.innerText = title + ': ' + message;
 
-                // var errorMessageSpan = document.getElementById(form.id + 'errormessage');
-                // errorMessageSpan.innerText = title + ': ' + message;
-
-                if (status === 'success') {
-                    form.reset();
-                }
-            })
-            .catch(error => {
-                console.log('Error occurred', error);
-            });
+                    if (status === "success") {
+                        form.reset();
+                    }
+                })
+                .catch((error) => {
+                    console.log("Error occurred", error);
+                });
         }
-
 
         // function showOtpVerificationForm(otp) {
         //     // Display the OTP verification form
@@ -247,12 +258,9 @@
         //     // otpField.value = otp;
 
         //     // Add event listener for OTP verification form submission
-            
+
         // }
-
-        
-
-        
     </script>
 </body>
+
 </html>
