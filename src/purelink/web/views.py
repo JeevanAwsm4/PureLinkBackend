@@ -21,6 +21,11 @@ def index(request):
     form = DonorForm()
     return render(request,'index.html', {'form': form})
 
+def about(request):
+    return render(request,'about.html')
+
+def restrictions(request):
+    return render(request,'restrictions.html')
 
 def empty(request):
     return render(request,'empty.html')

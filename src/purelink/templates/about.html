@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | Pure Link</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/index.js"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/index.js' %}"></script>
 </head>
 <body>
     <section id="about">
         <section class="container">
             <header>
                 <div class="img-container">
-                    <a href="index.html">
-                        <img src="{% static 'images/about/arrow_icon.png' %}" alt="Icon">
-                    </a>
-                    <img src="template/logo/logo.png" alt="Icon" class="PL">
+                    <img src="{% static 'template/logo/logo.png' %}" alt="Icon" class="PL">
                 </div> <!--(#about > section.container > header >.img-container)-->
                 <div class="content">
                     <ul>
@@ -144,23 +142,23 @@
                     </div> <!--(#about > section.container > section.side-bar > section.wrapper > div.top)-->
                     <ul>
                         <li>
-                            <span class="bar active" id="1"><img src="template/about/about-side-bar.svg" alt=""></span>
+                            <span class="bar active" id="1"><img src="{% static 'template/about/about-side-bar.svg' %}" alt=""></span>
                             <a href="" class="link">Our Missions</a>
                         </li>
                         <li>
-                            <span class="bar" id="2"><img src="template/about/about-side-bar.svg" alt=""></span>
+                            <span class="bar" id="2"><img src="{% static 'template/about/about-side-bar.svg' %}" alt=""></span>
                             <a href="" class="link">Our Values</a>
                         </li>
                         <li>
-                            <span class="bar" id="3"><img src="template/about/about-side-bar.svg" alt=""></span>
+                            <span class="bar" id="3"><img src="{% static 'template/about/about-side-bar.svg' %}" alt=""></span>
                             <a href="" class="link">How We Work</a>
                         </li>
                         <li>
-                            <span class="bar" id="4"><img src="template/about/about-side-bar.svg" alt=""></span>
+                            <span class="bar" id="4"><img src="{% static 'template/about/about-side-bar.svg' %}" alt=""></span>
                             <a href="" class="link">Aim</a>
                         </li>
                         <li>
-                            <span class="bar" id="5"><img src="template/about/about-side-bar.svg" alt=""></span>
+                            <span class="bar" id="5"><img src="{% static 'template/about/about-side-bar.svg' %}" alt=""></span>
                             <a href="" class="link">Get Involved</a>
                         </li>
                     </ul>

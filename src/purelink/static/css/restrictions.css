@@ -1,0 +1,908 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --bg-color: #fef3f3;
+    --text-color: #333;
+    --main-color: #fcc4c1;
+    --white-color: #fdfdfd;
+    --shadow-color: rgba(0, 0, 0, .2);
+}
+
+*::selection {
+    background: var(--main-color);
+    color: var(--bg-color);
+}
+
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 7%;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    z-index: 100;
+    transition: .5s;
+    justify-content:space-around;
+}
+
+.header.sticky {
+    background: var(--bg-color);
+    box-shadow: 0 .1rem 1rem var(--shadow-color);
+}
+
+
+.navbar .topclr {
+    color: #DC0E52 !important;
+
+}
+
+.navbar a {
+    position: relative;
+    font-size: 10px;
+    color: #DC0E52;
+    font-weight: 600;
+    margin-right: 2rem;
+}
+
+.header.sticky .navbar a {
+    color: #DC0D53;
+}
+
+.header.sticky .navbar a.active {
+    color: #DC0E52;
+}
+
+.navbar a.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: .2rem;
+    background: #DC0E52;
+}
+
+.header.sticky .navbar a::before {
+    background: #DC0E52;
+    opacity: .7;
+}
+
+#darkMode-icon {
+    font-size: 2.4rem;
+    color: var(--white-color);
+    cursor: pointer;
+}
+
+.header.sticky #darkMode-icon {
+    color: var(--text-color);
+    opacity: .9;
+}
+
+#menu-icon {
+    font-size: 3.6rem;
+    color: var(--text-color);
+    display: none;
+}
+
+section {
+    min-height: 100vh;
+    padding: 10rem 7% 2rem;
+}
+
+.age {
+    display: flex;
+    align-items: center;
+}
+
+.age .age-content {
+    max-width: 44rem;
+}
+
+.age .age-content a {
+    margin-top: 20px;
+}
+
+.age-content h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    /* line-height: .3; */
+    color: #754ef9;
+}
+
+.age-content h1 {
+    font-size: 3.6rem;
+    font-weight: 700;
+    margin-bottom: .3rem;
+    width: 100%;
+}
+
+.age-content p {
+    font-size: 1.6rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1.2rem 2.8rem;
+    background: #DC0E52;
+    border-radius: .6rem;
+    box-shadow: 0 .2rem .5rem var(--shadow-color);
+    font-size: 1.6rem;
+    color: var(--white-color);
+    letter-spacing: .1rem;
+    font-weight: 600;
+    border: .2rem solid transparent;
+    transition: .5s ease;
+}
+
+.btn:hover {
+    background: transparent;
+    color: var(--main-color);
+    border-color: var(--main-color);
+} 
+
+.age .profession-container {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.age .profession-container .profession-box {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 768px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: professionRotate 13s ease-out infinite;
+}
+
+@keyframes professionRotate {
+
+    0%,
+    20% {
+        transform: rotate(0deg);
+    }
+
+    25%,
+    45% {
+        transform: rotate(-90deg);
+    }
+
+    50%,
+    70% {
+        transform: rotate(-180deg);
+    }
+
+    75%,
+    95% {
+        transform: rotate(-270deg);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+.age .profession-box .profession {
+    position: absolute;
+    left: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: var(--main-color);
+    transform: rotate(calc(360deg / 4 * var(--i)));
+    transform-origin: 384px;
+    background: var(--bg-color);
+    padding: 13px 0;
+}
+
+.age .profession-box .profession:nth-child(1) i {
+    margin-right: 15px;
+}
+
+.age .profession-box .profession:nth-child(2),
+.age .profession-box .profession:nth-child(4) {
+    padding-bottom: 20px;
+}
+
+.age .profession i {
+    font-size: 3.8rem;
+}
+
+.age .profession h3 {
+    font-size: 3.2rem;
+    line-height: 1;
+    font-weight: 600;
+}
+
+.age .profession-box .circle {
+    width: 560px;
+    height: 560px;
+    border: 3px solid var(--main-color);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.age .profession-container .overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-top: 50vh solid var(--main-color);
+    border-right: 384px solid var(--main-color);
+    border-bottom: 50vh solid var(--main-color);
+    border-left: 384px solid transparent;
+}
+
+.age-img img {
+    position: absolute;
+    bottom: 0;
+    right: 40px;
+    pointer-events: none;
+    max-width: 480px;
+    max-height: 800px;
+}
+
+span {
+    color: #DC0E52;
+}
+
+.Weight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+        /* gap: 4rem; */
+}
+
+.Weight-img img {
+    width: 40vw;
+}
+
+.Infections-img img {
+    width: 40vw;
+    padding-left: 100px;
+}
+.heading {
+    font-size: 4.5rem;
+    text-align: center;
+}
+
+.Weight-content h2 {
+    text-align: left;
+    line-height: 1.2;
+}
+
+.Weight-content h3 {
+    font-size: 2rem;
+}
+
+.Infections .Weight-content {
+    padding-right: 50px;
+
+}
+.Infections-img img {
+    width: 30vw;
+    padding-left: 0px;
+    box-sizing: border-box;
+
+}
+.Weight-content p {
+    font-size: 1.6rem;
+    margin: 2rem 0 3rem;
+}
+
+.Pregnancy .Weight-img img {
+    width: 20vw;
+    /* padding-right: 20px; */
+}
+
+.Pregnancy .Weight-content {
+    padding-left: 50px;
+}
+
+
+.Travel .Weight-content {
+    padding-right: 20px;
+}
+.Travel .Weight-img  {
+
+}
+.Travel .Weight-img img {
+    width: 30vw;
+}
+
+.Pregnancy .Weight-content h2 {
+    text-align: left;
+    line-height: 1.2;
+} 
+
+
+.Pregnancy .Weight-content p {
+    font-size: 1.6rem;
+    margin: 1rem 0 2rem;
+} 
+.Pregnancy {
+    min-height: auto;
+    padding-bottom: 10rem;
+}
+
+.Pregnancy h2 {
+    margin-bottom: 4rem;
+}
+
+
+
+.Pregnancy-container .Pregnancy-box {
+    position: relative;
+    display: flex;
+    border-radius: 2rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, .1);
+    overflow: hidden;
+}
+
+.Pregnancy-box img {
+    width: 100%;
+    transition: .5s ease;
+}
+
+.Pregnancy-box:hover img {
+    transform: scale(1.1);
+}
+
+.Pregnancy-box .Pregnancy-layer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, .1), var(--main-color));
+    color: var(--white-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 0 4rem;
+    opacity: 0;
+    transition: .5s ease;
+}
+
+.Pregnancy-box:hover .Pregnancy-layer {
+    opacity: 1;
+}
+
+.Pregnancy-layer h4 {
+    font-size: 3rem;
+}
+
+.Pregnancy-layer p {
+    font-size: 1.6rem;
+    margin: .3rem 0 1rem;
+}
+
+.Pregnancy-layer a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 5rem;
+    height: 5rem;
+    background: var(--white-color);
+    border-radius: 50%;
+}
+
+.Pregnancy-layer a i {
+    font-size: 2rem;
+    color: #333;
+} 
+
+
+/* BREAKPOINTS */
+@media (max-width: 1280px) {
+    html {
+        font-size: 55%;
+    }
+    header nav a {
+        margin-right:1.5rem !important;
+        font-size:8px !important;
+    }
+    .age .profession-container .profession-box {
+        right: -10%;
+    }
+
+    .age .profession-container .overlay {
+        right: -6%;
+    }
+
+    .age-img img {
+        right: 0;
+    }
+}
+
+@media (max-width: 1100px) {
+    .age .profession-container .profession-box {
+        right: -15%;
+    }
+
+    .age-img img {
+        max-width: 420px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .header {
+        padding: 2rem 3%;
+    }
+
+    section {
+        padding: 10rem 3% 2rem;
+    }
+
+    .age .profession-container .profession-box {
+        right: -20%;
+    }
+
+    .age .profession-container .overlay {
+        right: -12%;
+    }
+
+    .age-img img {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 980px) {
+
+    .navbar a:nth-child(1) {
+        color: var(--main-color);
+    }
+
+    .navbar a.active::before {
+        background: var(--main-color);
+    }
+
+    .age .profession-container .profession-box {
+        right: -35%;
+    }
+
+    .age .profession-container .overlay {
+        right: -30%;
+    }
+
+    .age-img img {
+        display: none;
+    }
+     #menu-icon {
+        display: block;
+    }
+
+    #darkMode-icon {
+        position: absolute;
+        right: 7rem;
+        font-size: 2.6rem;
+        color: var(--text-color);
+        margin-bottom: .1rem;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem 3%;
+        background: var(--bg-color);
+        border-top: .1rem solid rgba(0, 0, 0, .2);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+        display: none;
+    }
+
+    .navbar.active {
+        display: block;
+    }
+
+    .navbar a {
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+        color: var(--text-color);
+    }
+
+    .navbar a:nth-child(1),
+    .navbar a:nth-child(2) {
+        color: var(--text-color);
+    }
+
+    .navbar a.active {
+        color: var(--main-color);
+    }
+
+    .navbar a::before {
+        display: none;
+    }
+
+    .age {
+        padding: 0 3% 23rem;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .age-content h3 {
+        font-size: 2.6rem;
+    }
+
+    .age-content h1 {
+        font-size: 5rem;
+    }
+
+    /* .age-content .social-media a {
+        margin: 2.5rem .75rem 3rem;
+    } */
+
+    .age .profession-container {
+        display : none !important ;
+        margin-top: 50vh;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .age .profession-container .profession-box {
+        position: fixed;
+        top: 450px;
+        left: 0;
+        width: 100%;
+    }
+
+    .age .profession-box .profession {
+        padding: 0 13px;
+        left: auto;
+        transform-origin: 0;
+    }
+
+    .age .profession-box .profession:nth-child(1) {
+        transform: rotate(-90deg) translate(-120px, -210px);
+    }
+
+    .age .profession-box .profession:nth-child(1) i {
+        margin-right: 0;
+    }
+
+    .age .profession-box .profession:nth-child(2) {
+        transform: rotate(0deg) translate(0, -325px);
+    }
+
+    .age .profession-box .profession:nth-child(3) {
+        transform: rotate(90deg) translate(-115px, -450px);
+    }
+
+    .age .profession-box .profession:nth-child(4) {
+        transform: rotate(180deg) translate(-220px, -325px);
+    }
+
+    .age .profession-box .circle {
+        position: fixed;
+        width: 670px;
+        height: 670px;
+        z-index: -1;
+    }
+
+    .age .profession-container .overlay {
+        position: fixed;
+        top: 70rem;
+        left: 50%;
+        right: 0;
+        transform: rotate(90deg) translate(-50%, 50%) scaleY(3);
+        border-width: 23.9rem;
+    }
+
+    .Weight {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .Weight-content h2 {
+        text-align: center;
+    }
+
+    .Weight-img img {
+        width: 70vw;
+        margin-left:20%;
+        margin-top: 2rem;
+    }
+
+    /* .footer {
+        padding: 2rem 3%;
+    } */
+    .profession h3 {
+        width: 1px;
+    }
+    section.age {
+        display: flex;
+        align-items:center;
+        flex-wrap : wrap;
+        
+    }
+    section.age .age-content {
+        width: 100%;
+    }
+    div.Weight-img img {
+        margin-left:2rem;
+    }
+    .weight3 {
+        margin-left:-2rem;
+    }
+    .killme {
+        margin-top: 30px !important;
+    }
+    .thrible {
+        margin-top: 30px !important;
+    }
+    div.Weight-content h2.heading {
+        margin-left: 4rem !important;
+    }
+    h2.heading.seconhdo {
+        margin-left: 100% !important;
+    }
+}
+
+@media (max-width: 896px) {
+
+    .age .profession-container .profession-box {
+        right: -50%;
+    }
+
+    .age .profession-container .overlay {
+        right: -43%;
+    }
+}
+
+@media (max-width: 879px) {
+    .Pregnancy .Pregnancy-container {
+        grid-template-columns: repeat(2, 1fr);
+    } 
+
+
+@media (max-width: 780px) {
+    .navbar a:nth-child(2) {
+        color: var(--white-color);
+    }
+}
+
+@media (max-width: 768px) {
+    #menu-icon {
+        display: block;
+    }
+
+    #darkMode-icon {
+        position: absolute;
+        right: 7rem;
+        font-size: 2.6rem;
+        color: var(--text-color);
+        margin-bottom: .1rem;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem 3%;
+        background: var(--bg-color);
+        border-top: .1rem solid rgba(0, 0, 0, .2);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+        display: none;
+    }
+
+    .navbar.active {
+        display: block;
+    }
+
+    .navbar a {
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+        color: var(--text-color);
+    }
+
+    .navbar a:nth-child(1),
+    .navbar a:nth-child(2) {
+        color: var(--text-color);
+    }
+
+    .navbar a.active {
+        color: var(--main-color);
+    }
+
+    .navbar a::before {
+        display: none;
+    }
+
+    .age {
+        padding: 0 3% 23rem;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .age-content h3 {
+        font-size: 2.6rem;
+    }
+
+    .age-content h1 {
+        font-size: 5rem;
+    }
+
+    /* .age-content .social-media a {
+        margin: 2.5rem .75rem 3rem;
+    } */
+
+    .age .profession-container {
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .age .profession-container .profession-box {
+        position: fixed;
+        top: 450px;
+        left: 0;
+        width: 100%;
+    }
+
+    .age .profession-box .profession {
+        padding: 0 13px;
+        left: auto;
+        transform-origin: 0;
+    }
+
+    .age .profession-box .profession:nth-child(1) {
+        transform: rotate(-90deg) translate(-120px, -210px);
+    }
+
+    .age .profession-box .profession:nth-child(1) i {
+        margin-right: 0;
+    }
+
+    .age .profession-box .profession:nth-child(2) {
+        transform: rotate(0deg) translate(0, -325px);
+    }
+
+    .age .profession-box .profession:nth-child(3) {
+        transform: rotate(90deg) translate(-115px, -450px);
+    }
+
+    .age .profession-box .profession:nth-child(4) {
+        transform: rotate(180deg) translate(-220px, -325px);
+    }
+
+    .age .profession-box .circle {
+        position: fixed;
+        width: 670px;
+        height: 670px;
+        z-index: -1;
+    }
+
+    .age .profession-container .overlay {
+        position: fixed;
+        top: 70rem;
+        left: 50%;
+        right: 0;
+        transform: rotate(90deg) translate(-50%, 50%) scaleY(3);
+        border-width: 23.9rem;
+    }
+
+    .Weight {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .Weight-content h2 {
+        text-align: center;
+    }
+
+    .Weight-img img {
+        width: 70vw;
+        margin-top: -2rem;
+    }
+}
+
+@media (max-width: 580px) {
+    html {
+        max-width:570px;
+    }
+    .Pregnancy .Pregnancy-container {
+        grid-template-columns: 1fr;
+    } 
+
+@media (max-width: 450px) {
+    html {
+        font-size: 50%;
+    }
+    .thrible {
+        margin-left:20% !important;
+    }
+    h2.heading {
+        margin-left: 3px !important;
+        max-width:400px !important;
+    }
+    #darkMode-icon {
+        right: 6rem;
+    }
+
+    .age .profession-box .profession:nth-child(1) {
+        transform: rotate(-90deg) translate(-110px, -220px);
+    }
+
+    .age .profession-box .profession:nth-child(2) { 
+        transform: rotate(0deg) translate(5px, -325px);
+    }
+
+    .age .profession-box .profession:nth-child(3) {
+        transform: rotate(90deg) translate(-105px, -440px);
+    }
+
+    .age .profession-box .profession:nth-child(4) {
+        transform: rotate(180deg) translate(-210px, -325px);
+    }
+
+    .age .profession-container .overlay {
+        top: 80rem;
+    }
+    section#Weight.weight {
+        margin-top: 0px !important;
+    }
+     * {
+        padding : 0 !important;
+    }
+    }
+    }
+    .hekkbro {
+        margin-top: 20px !important;
+        margin-left: 10px !important;
+    }
+}
+
+@media (max-width: 365px) {
+    .Weight-img img {
+        width: 90vw;
+    }
+}
+
+@media (max-width: 315px) {
+    .age-content h1 {
+        font-size: 4.5rem;
+    }
+}
+img {
+        border-radius: 20px;
+    }

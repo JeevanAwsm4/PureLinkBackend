@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cool Responsive Pregnancy Website Design</title>
+
+    <!-- swiper css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+    <!-- box icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="{% static 'css/restrictions.css' %}">
+</head>
+
+<body>
+
+    <!-- header design -->
+    <header class="header">
+        <!-- <a href="#" class="logo">Pregnancy.</a> -->
+
+        <nav class="navbar">
+            <a href="#age" class="active topclr" c>Age And Previous Donations</a>
+            <a href="#Weight" class="topclr">Weight And 
+                Health</a>
+            <a href="#Infections" class="topclr">Infections
+                And Vaccinations</a>
+            <a href="#Pregnancy" class="topclr">Pregnancy And Breastfeeding</a>
+            <a href="#Travel">Travel History And High-Risk Behaviors</a>
+            <a href="#Tattoos">Tattoos And Piercings</a>
+            <a href="#Medications">Medications</a>
+            <a href="#Hemoglobin">Hemoglobin Levels</a>
+            
+        </nav>
+
+       
+
+        <div class="bx bx-menu" id="menu-icon"></div>
+    </header>
+
+    <!-- age section design -->
+    <section class="age" id="age">
+        <div class="age-content">
+            <h3>Age And Previous Donations</h3>
+            <h1>Eligibility Criteria for Blood Donation</h1>
+            <p>
+                Blood donation is a generous act that can save lives. However, to ensure the safety of both donors and recipients, certain eligibility criteria must be met. One of these criteria is age. Individuals typically need to be between 18 and 65 years old to donate blood. The minimum age might vary in some states and blood banks
+            </p>
+            <br>
+            <p>Another important criterion is the interval between successive blood donations. This interval can vary but is typically around 56 days for whole blood donations. This waiting period helps ensure that donors have enough time to replenish their blood supply before donating again</p>
+            <a href="https://www.godigit.com/health-insurance/care/blood-donation-rules-and-eligibility-criteria" class="btn" target="_blank">Read More</a>
+        </div>
+
+        <div class="profession-container">
+            <div class="profession-box">
+                <div class="profession" style="--i:0;">
+                    <h3>Save Life</h3>
+                </div>
+                <div class="profession" style="--i:1;">
+                    <h3>Give Blood</h3>
+                </div>
+                <div class="profession" style="--i:2;">
+                    <h3>Be a life-saver</h3>
+                </div>
+                <div class="profession" style="--i:3;">
+                    <h3>Every drop counts</h3>
+                </div>
+
+                <div class="circle"></div>
+            </div>
+
+            <div class="overlay"></div>
+        </div>
+
+        <div class="age-img">
+            <img src="{% static 'template/restriction_two/doctor-removebg-preview.png' %}" alt="">
+        </div>
+    </section>
+
+    <!-- Weight section design -->
+    <section class="Weight" id="Weight">
+        <div class="Weight-img">
+            <img src="{% static 'template/restriction_two/R-removebg-preview.png' %}" alt="" "class="thrible">
+        </div>
+
+        <div class="Weight-content">
+            <h2 class="heading">Weight And <span>Health</span></h2>
+            <h3>
+                Welcome to ‘Weight and Health’. This section outlines the weight and health criteria for safe and successful blood donation. Explore to learn more ;
+            </h3>
+            <p>
+                Weight is an important factor in determining eligibility for blood donation. You should weigh at least 45 kg (99 pounds) to be eligible. This requirement ensures that the donation process is safe for donors and that they can donate a sufficient amount of blood.
+            </p>
+            <p>In addition to meeting the weight requirement, donors should be in good general health. This means not suffering from any acute or chronic medical conditions, infections, or diseases at the time of donation. A healthy donor is more likely to make a successful donation and recover quickly afterwards
+            </p>
+            <a href="https://www.godigit.com/health-insurance/care/blood-donation-rules-and-eligibility-criteria" class="btn" target="_blank">Read More</a>
+        </div>
+    </section>
+
+    <!-- Infections section design -->
+    <section class="Infections" id="Infections">
+        <section class="Weight">
+    
+            <div class="Weight-content">
+                <h2 class="heading">Infections and <span>Vaccinations</span></h2>
+                <h3>
+                    Welcome to ‘Infections and Vaccinations’. This section outlines how certain infections and recent vaccinations can impact blood donation eligibility. Explore to learn more.                </h3>
+               <p>Ensuring the safety of blood recipients is our top priority. Individuals with blood-borne infections, such as HIV, hepatitis B or C, are generally not allowed to donate blood. This is to prevent the transmission of these infections to the blood recipient</p>
+                <p>Vaccinations are an important part of maintaining public health. However, depending on the vaccine, there might be a waiting period before donating blood. For example, you may need to wait for a specific duration after receiving certain vaccines, such as COVID-19 vaccines. This is to ensure that your immune system has fully responded to the vaccine and that it is safe for you to donate blood.</p>
+                <a href="https://www.godigit.com/health-insurance/care/blood-donation-rules-and-eligibility-criteria" class="btn" target="_blank">Read More</a>
+            </div>
+            <div class="Infections-img ">
+                <img src="{% static 'images/shutterstock-1419146978' %}' " alt="">
+            </div>
+        </section>
+    </section>
+
+    <section class="Pregnancy" id="Pregnancy">
+        <section class="Weight">
+            <div class="Weight-img weight3">
+                <img src="{% static 'template/restriction_two/R__1_-removebg-preview.png' %}" alt="" class="killme">
+            </div>
+    
+            <div class="Weight-content">
+                <h2 class="heading secondhdo">Pregnancy And <span>Breastfeeding</span></h2>
+                <h3>
+                    Welcome to ‘Pregnancy and Breastfeeding’. This section explains how these conditions affect blood donation eligibility. Explore to learn more
+                </h3>
+                <p>Pregnancy is a time of significant physiological changes, and for the safety of both the mother and the baby, pregnant women are usually not eligible to donate blood. It's important to prioritize the health and well-being of the mother and the developing baby during this time </p>
+                <p>Breastfeeding also demands extra energy and nutrients from the mother. While breastfeeding mothers can often donate blood, it's recommended to wait until the baby is at least 6 months old and has started eating some solid foods. This helps ensure that both the mother and the baby are in good health </p>
+                <a href="https://www.godigit.com/health-insurance/care/blood-donation-rules-and-eligibility-criteria" class="btn" target="_blank">Read More</a>
+            </div>
+        </section>
+    </section>
+
+    <section class="Travel" id="Travel">
+        <section class="Weight">
+    
+            <div class="Weight-content">
+                <h2 class="heading">Travel History and <br><span>High-Risk Behaviors</span></h2>
+                <h3>
+                    Welcome to "Travel History and High-Risk Behaviors". This section explains how these factors affect blood donation eligibility. Explore to learn more.
+                </h3>
+                <p>Travel history can affect your eligibility to donate blood. Recent travel to certain malaria-endemic areas may disqualify a donor for a specific period. This is to ensure the safety of the blood recipient </p>
+                <p>Engaging in high-risk behaviors can also affect your eligibility to donate blood. Individuals engaged in behaviors such as intravenous drug use may be disqualified from donating blood. This is to prevent the transmission of blood-borne infections </p>
+                <a href="https://www.godigit.com/health-insurance/care/blood-donation-rules-and-eligibility-criteria" class="btn" target="_blank">Read More</a>
+            </div>
+            <div class="Weight-img">
+                <img src="{% static 'template/restriction_two/221119-travel-background-1920x1080-laptop-removebg-preview.png' %}" alt="">
+            </div>
+        </section>
+        
+    </section>
+
+    <section class="Tattoos" id="Tattoos">
+        <section class="Weight">
+            <div class="Weight-img">
+                <img src="{% static 'template/restriction_two/OIP-removebg-preview.png' %}" alt="" class="hekkbro">
+            </div>
+
+            <div class="Weight-content">
+                <h2 class="heading">Tattoos and<span>Piercings</span></h2>
+               <h3>
+                Welcome to ‘Tattoos and Piercings’. This section outlines how these body modifications can impact blood donation eligibility. Explore to learn more
+               </h3>
+                <p>Tattoos are a popular form of body art. However, there may be a deferral period after getting a tattoo due to the risk of infection. The length of this period can vary depending on the regulations of your local blood donation center</p>
+                <p>Piercings, like tattoos, can also lead to a deferral period for blood donation. This is because any invasive procedure can potentially lead to an infection, which could affect the safety of the donated blood</p>
+                <a href="https://www.godigit.com/health-insurance/care/blood-donation-rules-and-eligibility-criteria" class="btn" target="_blank">Read More</a>
+            </div>
+           
+        </section>
+    </section>
+
+    <section class="Medications" id="Medications">
+        <section class="Weight">
+    
+            <div class="Weight-content">
+                <h2 class="heading">Medica<span>tions</span></h2>
+               <h3>
+                “Welcome to ‘Medications’. This section explains how certain medications can impact blood donation eligibility. Explore to learn more
+               </h3>
+               <p>Medications are an important factor in determining eligibility for blood donation. Some medications may affect your eligibility, so it's essential to disclose any prescription or over-the-counter medications you are taking to the blood bank staff. This is to ensure the safety of the blood recipient and to prevent any potential reactions or complications</p>
+                <a href="https://www.godigit.com/health-insurance/care/blood-donation-rules-and-eligibility-criteria" class="btn" target="_blank">Read More</a>
+            </div>
+            <div class="Weight-img">
+                <img src="{% static 'template/restriction_two/med.png' %}" alt="">
+            </div>
+        </section>
+    </section>
+
+    <section class="Hemoglobin" id="Hemoglobin">
+        <section class="Weight">
+            <div class="Weight-img">
+                <img src="{% static 'template/restriction-two/hemoglobin-levels-in-humans-650x379-removebg-preview.png' %}" alt="">
+            </div>
+
+            <div class="Weight-content">
+                <h2 class="heading">Hemoglobin<span>Levels</span></h2>
+               <h3>
+                Welcome to ‘Hemoglobin Levels’. This section explains how hemoglobin levels can impact blood donation eligibility. Explore to learn more
+                </h3>
+               <p>Hemoglobin is a protein in your red blood cells that carries oxygen from your lungs to the rest of your body. A sufficient hemoglobin level is crucial for blood donation. Your hemoglobin level should meet the specified criteria, usually around 12.5 to 13.5 grams per deciliter (g/dL) for men and 12.0 to 12.5 g/dL for women. This ensures that you have enough red blood cells to safely donate blood without risking your own health.</p>
+                <a href="https://www.godigit.com/health-insurance/care/blood-donation-rules-and-eligibility-criteria" class="btn" target="_blank">Read More</a>
+            </div>
+        </section>
+    </section>
+
+    
+    <!-- scroll reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- swiper js -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+    <!-- custom js -->
+        <script src="{% static 'js/restrictions.js' %}"></script>
+</body>
+
+</html>

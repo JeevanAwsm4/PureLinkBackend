@@ -1,0 +1,294 @@
+@font-face {
+    font-family: 'inter-black';
+    src: url(components/assets/font/static/Inter-Black.ttf);
+}
+@font-face {
+    font-family: 'inter-bold';
+    src: url(components/assets/font/static/Inter-Bold.ttf);
+}
+@font-face {
+    font-family: 'inter-extra-bold';
+    src: url(components/assets/font/static/Inter-ExtraBold.ttf);
+}
+@font-face {
+    font-family: 'inter-extra-light';
+    src: url(components/assets/font/static/Inter-ExtraLight.ttf);
+}
+@font-face {
+    font-family: 'inter-light';
+    src: url(components/assets/font/static/Inter-Light.ttf);
+}
+@font-face {
+    font-family: 'inter-medium';
+    src: url(components/assets/font/static/Inter-Medium.ttf);
+}
+@font-face {
+    font-family: 'inter-regular';
+    src: url(components/assets/font/static/Inter-Regular.ttf);
+}
+@font-face {
+    font-family: 'inter-semi-bold';
+    src: url(components/assets/font/static/Inter-SemiBold.ttf);
+}
+@font-face {
+    font-family: 'inter-thin';
+    src: url(components/assets/font/static/Inter-Thin.ttf);
+}
+*{
+    box-sizing: border-box;
+}
+ul,ol{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+:root{
+    --bg--: #EEEEEE;
+    --bg2--: #ffe5e9;
+    --h1--: #008585;
+    --p--: #00adad;
+    --p2--: #db0952;
+    --h1Dash--: #2d2d2d;
+    --pDash--: #4a4a4a;
+}
+
+.aside{
+    width: 10%;
+    height: 100vh;
+    background: #feeceb;
+    text-align: center;
+    position: fixed;
+    left: 0;
+}
+.aside h1.img{
+    display: inline-block;
+    width: 100px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.aside h1 img{
+    display: block;
+    width: 100%;
+}
+.aside nav ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: -40px;
+}
+.aside nav ul li{
+    margin-bottom: 50px;
+}
+.aside nav ul li:last-child{
+    margin-bottom: 0;
+}
+.aside nav ul li a{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-family: 'inter-medium';
+    font-size: 15px;
+    color: var(--p2--);
+}
+.aside nav ul li a button{
+    display: inline-block;
+    padding: 5px 30px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border: none;
+    margin-bottom: 3px;
+    background: none;
+}
+.aside nav ul li a:hover button{
+    background: #D9D9D9;    
+}
+.aside nav ul li a.active button{
+    background: #ffa9b7;
+}
+.aside nav ul li a button img{
+    width: 20px;
+    margin-top: 3px;
+}
+
+.container{
+}
+.container h1.top{
+    font-family: 'inter-bold';
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: var(--h1Dash--);
+}
+.container .counts{
+    border-radius: 15px;
+    padding: 0 20px 50px;
+    padding-right: 55px;
+    background: #fff0f0;
+}
+.container .counts ul{
+    display: flex;
+    justify-content: space-between;
+}
+.container .counts ul li{
+    text-align: center;
+}
+.container .counts ul li h1{
+    font-family: 'inter-bold';
+    font-size: 50px;
+    margin-bottom: 80px;
+    color: var(--h1Dash--);
+}
+.container .counts ul li h4{
+    font-family: 'inter-bold';
+    font-size: 20px;
+    color: var(--h1Dash--);
+}
+.container .counts ul li:first-child h4{
+    margin-left: -20px;
+}
+.container .noti{
+    padding: 20px;
+}
+.container .noti h1.top{
+    display: flex;
+    font-family: 'inter-bold';
+    font-size: 25px;
+    color: var(--h1Dash--);
+    margin-bottom: 20px;
+    
+}
+.container .noti h1.top img{
+    width: 30px;
+    margin-right: 10px;
+}
+.container .noti .content{
+    padding: 10px 40px;
+    background: #fff0f0;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+.container .noti .content p{
+    display: block;
+    font-family: 'inter-medium';
+    font-size: 15px;
+    color: var(--pDash--);
+    margin-bottom: 20px;
+}
+.container .noti .content p span{
+    font-family: 'inter-bold';
+    font-size: 16px;
+    color: var(--p2--);
+}
+.container .noti .content ul{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 0;
+}
+.container .noti .content ul li{
+
+}
+.container .noti .content ul li button{
+    padding: 10px 30px;
+    background: var(--p2--);
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+}
+.container .noti .content ul li button:hover{
+    background: #ff0059;
+}
+.container .noti .content ul li span.time{
+    font-family: 'inter-semi-bold';
+    font-size: 13px;
+    color: #2d2d2d;
+    opacity: 0.5;
+}
+
+.profile{
+    position: fixed;
+    right: 0;
+    height: 100vh;
+    width: 23%;
+    padding-right: 10px;
+}
+.profile div.top{
+    border-left: 2px solid #c5c5c5;
+    padding: 5px 10px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+}
+.profile div.top a{
+    display: inline-flex;
+    align-items: center;
+    margin-left: 20px;
+}
+.profile div.top img{
+    width: 37px;
+    height: 37px;
+    border-radius: 50px;
+    margin-right: 20px;
+}
+.profile div.top span.name{
+    display: inline-flex;
+    font-family: 'inter-bold';
+    font-size: 16px;
+    color: var(--h1Dash--);
+}
+.profile div.top span.name img{
+    width: 20px;
+    height: 20px;
+    margin-left: 7px;
+}
+.profile .below{
+
+}
+.profile .below h1.top{
+    display: flex;
+    font-family: 'inter-bold';
+    font-size: 30px;
+    align-items: center;
+}
+.profile .below h1.top img{
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+}
+.profile .below .history{
+    height: 310px;
+    background: #fff0f0;
+    border-radius: 15px;
+    padding: 20px 10px;
+    /* text-align: center; */
+}
+.profile .below .history .content{
+    background: #fff;
+    border-radius: 25px;
+    padding: 5px 10px;
+}
+.profile .below .history .content p{
+    font-family: 'inter-medium';
+    font-size: 12px;
+}
+.profile .below .history .content p span{
+    font-family: 'inter-bold';
+    color: var(--p2--);
+}
+.profile .below .history .content span.time{
+    display: block;
+    text-align: right;
+    font-family: 'inter-semi-bold';
+    font-size: 11px;
+    color: var(--pDash--);
+    opacity: 0.7;
+}
+.profile .below .history a.see{
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    font-family: 'inter-medium';
+    font-size: 12px;
+    color: var(--pDash--);
+}
